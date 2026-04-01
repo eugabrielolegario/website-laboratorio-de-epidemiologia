@@ -1,89 +1,94 @@
-# Laboratório de Epidemiologia — LabEpi
+# 🔬 Laboratório de Epidemiologia — LabEpi
 
-Site oficial do **Laboratório de Epidemiologia (LabEpi)**, a primeira plataforma brasileira dedicada exclusivamente à epidemiologia aplicada.
+![Astro](https://img.shields.io/badge/Astro-BC52EE?style=for-the-badge&logo=astro&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
----
-
-## Sobre o projeto
-
-O LabEpi nasceu com uma missão: tornar a metodologia epidemiológica rigorosa acessível a pesquisadores e estudantes brasileiros, sem perder o rigor científico, sem criar barreiras desnecessárias ao aprendizado.
-
-A plataforma é desenvolvida e mantida pelos três co-fundadores:
-
-| Nome | Papel |
-| --- | --- |
-| **Lucas Santos** | Epidemiologista, professor e consultor. Pesquisador ativo no Global Burden of Disease (GBD/IHME), com publicações em The Lancet e outros periódicos de alto impacto. |
-| **Gabriel Olegário** | Plataforma digital, desenvolvimento do site e acessibilidade de conteúdo. |
-| **André** | Identidade visual e produção audiovisual. |
+O **LabEpi** é a primeira plataforma brasileira dedicada exclusivamente à epidemiologia aplicada. Nosso objetivo é tornar a metodologia epidemiológica rigorosa acessível a pesquisadores e estudantes, eliminando barreiras desnecessárias ao aprendizado sem comprometer o rigor científico.
 
 ---
 
-## Status do projeto
+## 🚀 Sobre o Projeto
 
-O site está em desenvolvimento ativo. A estrutura de páginas ainda está evoluindo — as próximas adições planejadas incluem:
+O site oficial do LabEpi serve como o hub central para disseminação de conhecimento, oferta de cursos e consultoria especializada. Recentemente, o projeto foi migrado de uma estrutura estática simples para o **Astro**, garantindo melhor performance, SEO e manutenibilidade.
 
-- Página de **Blog**
-- Separação da consultoria em duas modalidades: **Pré e Pós-graduação** e **Consultoria Metodológica**
-- Outras páginas de serviços à medida que o LabEpi cresce
-
----
-
-## Páginas atuais
-
-| Arquivo | Descrição |
-| --- | --- |
-| `index.html` | Página principal com apresentação dos serviços, cursos, consultoria e eBooks |
-| `consultoria.html` | Página dedicada à consultoria metodológica individual |
-| `sobre.html` | História, missão, visão, valores e manifesto do LabEpi |
-| `obrigado-cursos.html` | Página de confirmação para inscrições em cursos |
+### 🌟 Principais Serviços
+- **Cursos Especializados**: Formação do básico ao avançado com foco em casos práticos da saúde.
+- **Consultoria Metodológica**: Apoio individualizado para mestrandos e doutorandos com especialistas do GBD/The Lancet.
+- **eBooks e Materiais**: Conteúdo técnico aprofundado para consulta rápida.
+- **Blog Educativo**: Artigos semanais sobre ciência e epidemiologia.
 
 ---
 
-## Serviços oferecidos
+## 🛠️ Tecnologias Utilizadas
 
-- **Cursos** — Formação em vídeo, do básico ao avançado, com casos práticos da área da saúde
-- **Consultoria Metodológica** — Sessões individuais com epidemiologista do GBD/The Lancet para mestrandos e doutorandos
-- **eBooks** — Materiais de aprofundamento em epidemiologia
-- **Blog** — Artigos científicos e conteúdo educativo publicados semanalmente
-
----
-
-## Tecnologias
-
-- HTML5 semântico
-- CSS customizado (Grid, Flexbox, variáveis CSS, animações)
-- JavaScript vanilla
-- Google Fonts — [Outfit](https://fonts.google.com/specimen/Outfit)
-
-Nenhum framework externo. Sem dependências de build.
+- **[Astro](https://astro.build/)**: Framework web para sites rápidos e focados em conteúdo.
+- **TypeScript**: Para um desenvolvimento mais seguro e escalável.
+- **CSS Moderno**: Uso de Grid, Flexbox e variáveis para um design responsivo e limpo.
+- **Google Fonts**: Tipografia baseada na fonte *Outfit*.
 
 ---
 
-## Como rodar localmente
+## 📂 Estrutura do Repositório
 
-Por ser um projeto estático (apenas HTML, CSS e JS), basta abrir os arquivos no navegador.
-
-Com a extensão **Live Server** no VS Code, o servidor sobe na porta `5501` (já configurada em `.vscode/settings.json`).
-
----
-
-## Por que este repositório é público
-
-O LabEpi acredita que conhecimento deve circular. Deixamos o código aberto porque a ideia é apoiar a ciência — se o jeito como construímos alguma coisa aqui puder ajudar outros desenvolvedores ou pesquisadores, ótimo. Fique à vontade para explorar, se inspirar ou abrir uma issue.
-
----
-
-## Estrutura do repositório
+A estrutura segue o padrão recomendado pelo Astro:
 
 ```text
 laboratorio-de-epidemiologia/
-├── index.html
-├── consultoria.html
-├── sobre.html
-├── obrigado-cursos.html
-├── assets/
-│   └── images/
-│       └── lucas-santos.jpg
-├── .gitignore
-└── README.md
+├── src/
+│   ├── components/  # Componentes UI reutilizáveis
+│   ├── content/     # Conteúdo gerenciado (Blog, Serviços)
+│   ├── layouts/     # Templates de página
+│   ├── pages/       # Rotas do site (index, sobre, consultoria)
+│   └── styles/      # Estilos globais e variáveis CSS
+├── public/          # Ativos estáticos (imagens, ícones)
+├── astro.config.mjs # Configurações do Astro
+└── package.json     # Dependências e scripts
 ```
+
+---
+
+## 💻 Como Executar Localmente
+
+Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/eugabrielolegario/website-laboratorio-de-epidemiologia.git
+   ```
+
+2. **Acesse a pasta do projeto:**
+   ```bash
+   cd website-laboratorio-de-epidemiologia
+   ```
+
+3. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+
+4. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+   O site estará disponível em `http://localhost:4321`.
+
+---
+
+## 👥 Equipe LabEpi
+
+| Membro | Função | Especialidade |
+| :--- | :--- | :--- |
+| **Lucas Santos** | Co-fundador | Epidemiologista, Pesquisador GBD/IHME (The Lancet). |
+| **Gabriel Olegário** | Co-fundador | Desenvolvedor e Responsável pela Plataforma Digital. |
+| **André** | Co-fundador | Designer de Identidade Visual e Produção Audiovisual. |
+
+---
+
+## 📄 Por que o código é aberto?
+
+Este repositório é mantido por alguém que não é desenvolvedor profissional, mas um entusiasta do aprendizado contínuo. Acredito que o conhecimento deve circular livremente, e este projeto é uma forma de compartilhar o que estou aprendendo, além de apoiar a comunidade. Sinta-se à vontade para explorar o código, sugerir melhorias ou utilizá-lo como inspiração. Durante o desenvolvimento, contei com o apoio do **Claude Code** para otimizar e refatorar o código, o que tem sido uma ferramenta valiosa no meu processo de aprendizado.
+
+---
+
+Desenvolvido com ❤️ pela equipe **LabEpi**.
