@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --navy:       #10135c;
-  --navy-mid:   #0e1150;
-  --navy-light: #181b6e;
+  --navy:       #070926;
+  --navy-mid:   #050720;
+  --navy-light: #0f1245;
   --mint:       #99ffcd;
   --mint-dim:   rgba(153,255,205,0.12);
   --mint-dim2:  rgba(153,255,205,0.06);
@@ -67,14 +67,16 @@ body {
 .btn-secondary:hover { border-color: var(--mint); color: var(--mint); }
 
 /* ─── HEADER ─── */
-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(7,9,38,0.92);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(153,255,205,0.08);
+}
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
   height: 68px; padding: 0 40px;
   max-width: 1300px; margin: 0 auto;
-  background: rgba(16,19,92,0.88);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
 }
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .logo-mark {
@@ -100,6 +102,16 @@ nav a:hover, nav a.active { color: var(--white); }
 .section-title { font-size: clamp(26px, 3.5vw, 42px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); }
 .section-title .mint { color: var(--mint); }
 .sep { border-top: 1px solid var(--border); }
+
+/* ─── DYNAMIC SECTION BACKGROUNDS ─── */
+.hero { background: radial-gradient(ellipse 80% 70% at 75% 10%, rgba(153,255,205,0.09) 0%, transparent 55%), #070926; }
+.para-quem { background: radial-gradient(ellipse 55% 60% at 5% 55%, rgba(153,255,205,0.07) 0%, transparent 55%), #070926; }
+.entregaveis-sec { background: radial-gradient(ellipse 70% 55% at 85% 45%, rgba(140,180,255,0.07) 0%, transparent 55%), #070926; }
+.como-funciona { background: radial-gradient(ellipse 60% 65% at 20% 70%, rgba(153,255,205,0.08) 0%, transparent 55%), #070926; }
+.autoridade { background: radial-gradient(ellipse 55% 65% at 90% 30%, rgba(153,255,205,0.08) 0%, transparent 55%), #070926; }
+.depoimentos { background: radial-gradient(ellipse 70% 50% at 40% 110%, rgba(140,180,255,0.06) 0%, transparent 55%), #070926; }
+.faq { background: radial-gradient(ellipse 65% 60% at 80% 20%, rgba(153,255,205,0.07) 0%, transparent 55%), #070926; }
+.cta-section { background: radial-gradient(ellipse 70% 80% at 35% 50%, rgba(153,255,205,0.11) 0%, transparent 55%), #070926; }
 
 /* ─── HERO ─── */
 .hero {

@@ -9,9 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --navy:    #10135c;
-  --navy-mid: #0e1150;
-  --navy-light: #181b6e;
+  --navy:    #070926;
+  --navy-mid: #050720;
+  --navy-light: #0f1245;
   --mint:    #99ffcd;
   --mint-dim: rgba(153,255,205,0.12);
   --mint-dim2: rgba(153,255,205,0.06);
@@ -43,6 +43,73 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* ─── GLOBAL BACKGROUND TEXTURE ─── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    radial-gradient(rgba(153,255,205,0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 1;
+}
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(153,255,205,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(153,255,205,0.03) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+/* Floating orb animations */
+@keyframes orb-drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -40px) scale(1.05); }
+  66%       { transform: translate(-20px, 20px) scale(0.97); }
+}
+@keyframes orb-drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(-35px, 25px) scale(1.04); }
+  70%       { transform: translate(20px, -30px) scale(0.96); }
+}
+
+/* Section decorative orbs */
+.missao::before, .hub::after, .diferenciais::before,
+.blog::before, .ebooks::after {
+  content: '';
+  position: absolute; pointer-events: none; border-radius: 50%; z-index: 0;
+}
+.missao::before {
+  width: 340px; height: 340px;
+  background: radial-gradient(circle, rgba(153,255,205,0.07) 0%, transparent 65%);
+  top: -80px; left: -120px;
+  animation: orb-drift-a 18s ease-in-out infinite;
+}
+.hub::after {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(140,180,255,0.07) 0%, transparent 65%);
+  bottom: -100px; right: -150px;
+  animation: orb-drift-b 22s ease-in-out infinite;
+}
+.diferenciais::before {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(153,255,205,0.06) 0%, transparent 65%);
+  top: 50%; left: -100px; transform: translateY(-50%);
+  animation: orb-drift-a 20s ease-in-out infinite 3s;
+}
+.blog::before {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(140,180,255,0.06) 0%, transparent 65%);
+  top: -60px; right: -120px;
+  animation: orb-drift-b 24s ease-in-out infinite 6s;
+}
+.ebooks::after {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(153,255,205,0.06) 0%, transparent 65%);
+  bottom: -80px; left: -100px;
+  animation: orb-drift-a 19s ease-in-out infinite 2s;
 }
 
 /* ─── PATTERN OVERLAY ─── */
@@ -107,14 +174,14 @@ body {
 /* ─── HEADER ─── */
 header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(7,9,38,0.92);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(153,255,205,0.08);
 }
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
   height: 68px; padding: 0 40px;
   max-width: 1300px; margin: 0 auto;
-  background: rgba(16,19,92,0.88);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
 }
 /* LOGO */
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
@@ -222,6 +289,20 @@ nav a:hover { color: var(--white); }
 .section-body { font-size: 17px; color: var(--body-text); line-height: 1.7; max-width: 560px; }
 .sep { border-top: 1px solid var(--border); }
 
+/* ─── DYNAMIC SECTION BACKGROUNDS ─── */
+.hero { background: radial-gradient(ellipse 80% 70% at 75% 10%, rgba(153,255,205,0.09) 0%, transparent 55%), #070926; }
+.missao { background: radial-gradient(ellipse 55% 60% at 5% 60%, rgba(153,255,205,0.07) 0%, transparent 55%), #070926; }
+.hub { background: radial-gradient(ellipse 70% 50% at 50% 110%, rgba(140,180,255,0.07) 0%, transparent 55%), #070926; }
+.autoridade { background: radial-gradient(ellipse 55% 65% at 95% 35%, rgba(153,255,205,0.08) 0%, transparent 55%), #070926; }
+.diferenciais { background: radial-gradient(ellipse 75% 45% at 15% 55%, rgba(140,180,255,0.06) 0%, transparent 60%), #070926; }
+.para-quem { background: radial-gradient(ellipse 60% 70% at 85% 80%, rgba(153,255,205,0.06) 0%, transparent 55%), #070926; }
+.lead-magnet { background: radial-gradient(ellipse 55% 80% at 20% 50%, rgba(153,255,205,0.10) 0%, transparent 55%), #070926; }
+.blog { background: radial-gradient(ellipse 70% 50% at 70% 0%, rgba(140,180,255,0.06) 0%, transparent 55%), #070926; }
+.consultoria { background: radial-gradient(ellipse 60% 65% at 10% 40%, rgba(153,255,205,0.08) 0%, transparent 55%), #070926; }
+.cursos { background: radial-gradient(ellipse 80% 55% at 50% 120%, rgba(153,255,205,0.07) 0%, transparent 55%), #070926; }
+.ebooks { background: radial-gradient(ellipse 65% 60% at 90% 15%, rgba(140,180,255,0.07) 0%, transparent 55%), #070926; }
+.espera { background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(153,255,205,0.11) 0%, transparent 55%), #070926; }
+
 /* ─── SOBRE / MISSÃO ─── */
 .missao { padding: 100px 0; position: relative; overflow: hidden; }
 .missao-bg {
@@ -275,7 +356,7 @@ nav a:hover { color: var(--white); }
 }
 
 /* ─── O QUE OFERECEMOS (HUB) ─── */
-.hub { padding: 100px 0; }
+.hub { padding: 100px 0; position: relative; overflow: hidden; }
 .hub-header { text-align: center; max-width: 620px; margin: 0 auto 60px; }
 .hub-header .section-tag { justify-content: center; }
 .hub-header .section-tag::after { display: none; }
@@ -352,7 +433,7 @@ nav a:hover { color: var(--white); }
 .cred-icon { color: var(--mint); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
 /* ─── DIFERENCIAIS ─── */
-.diferenciais { padding: 100px 0; }
+.diferenciais { padding: 100px 0; position: relative; overflow: hidden; }
 .diff-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 56px; }
 .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .diff-card {
@@ -457,7 +538,7 @@ nav a:hover { color: var(--white); }
 .lead-micro { font-size: 12px; color: var(--muted); }
 
 /* ─── BLOG ─── */
-.blog { padding: 100px 0; }
+.blog { padding: 100px 0; position: relative; overflow: hidden; }
 .blog-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 48px; }
 .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .blog-card {
@@ -673,7 +754,7 @@ footer { padding: 72px 0 32px; }
 .slider-dot.active { background: var(--mint); width: 22px; }
 
 /* ─── EBOOKS ─── */
-.ebooks { padding: 100px 0; }
+.ebooks { padding: 100px 0; position: relative; overflow: hidden; }
 .ebooks-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
 .ebooks-header .section-tag { justify-content: center; }
 .ebooks-header .section-tag::after { display: none; }
@@ -807,8 +888,8 @@ footer { padding: 72px 0 32px; }
       </div>
 
       <h1>
-        Seu caminho para a pós-graduação e a<br/>
-        <span class="mint">pesquisa científica.</span>
+        Seu caminho para a<br/>
+        pós-graduação e a <span class="mint">pesquisa científica.</span>
       </h1>
 
       <p class="hero-body">
@@ -816,7 +897,7 @@ footer { padding: 72px 0 32px; }
       </p>
 
       <div class="hero-lancet">
-        Fundado por colaborador do Global Burden of Disease · The Lancet
+        Fundado por colaborador do Global Burden of Disease
       </div>
 
       <div class="hero-actions">
@@ -853,7 +934,7 @@ footer { padding: 72px 0 32px; }
           Não somos mais um<br/>
           curso de <span class="mint">metodologia.</span>
         </h2>
-        <p>O Laboratório de Epidemiologia é a primeira plataforma brasileira dedicada exclusivamente a epidemiologia aplicada. Enquanto a maioria dos cursos ensina <em>o que é</em> um estudo transversal, nós ensinamos <em>como</em> desenhar, executar e publicar um estudo transversal.</p>
+        <p>O Laboratório de Epidemiologia é a primeira plataforma brasileira dedicada exclusivamente a epidemiologia aplicada. Enquanto a maioria dos cursos ensina conteúdos <em>rasos</em>, nós nos dedicamos ao ensino de mateiral <em>aprofundado</em> e com rigor científico.</p>
         <p>Combinamos rigor técnico com didática prática. Todo conteúdo publicado é baseado em evidências científicas reais, com citações verificáveis e referências nas principais bases de dados da área da saúde.</p>
         <div class="missao-numbers">
           <div class="num-card">
@@ -870,7 +951,7 @@ footer { padding: 72px 0 32px; }
           </div>
           <div class="num-card">
             <div class="num-val">GBD</div>
-            <div class="num-label">maior estudo epidemiológico do mundo · The Lancet</div>
+            <div class="num-label">maior estudo epidemiológico do mundo</div>
           </div>
         </div>
       </div>
@@ -1027,7 +1108,7 @@ footer { padding: 72px 0 32px; }
         </div>
         <h3>Autoridade GBD</h3>
         <p>Participação real no maior estudo epidemiológico do planeta. Credencial que não se fabrica.</p>
-        <span class="diff-tag">The Lancet · IHME</span>
+        <span class="diff-tag">IHME</span>
       </div>
       <div class="diff-card">
         <div class="diff-icon">

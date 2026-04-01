@@ -9,9 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --navy:    #10135c;
-  --navy-mid: #0e1150;
-  --navy-light: #181b6e;
+  --navy:    #070926;
+  --navy-mid: #050720;
+  --navy-light: #0f1245;
   --mint:    #99ffcd;
   --mint-dim: rgba(153,255,205,0.12);
   --mint-dim2: rgba(153,255,205,0.06);
@@ -37,13 +37,16 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--navy);
+  background: #070926;
   color: var(--white);
   font-family: var(--font);
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
 }
+
+/* ─── DYNAMIC SECTION BACKGROUNDS ─── */
+body { background: radial-gradient(ellipse 70% 60% at 70% 20%, rgba(153,255,205,0.08) 0%, transparent 55%), #070926; }
 
 /* ─── LAYOUT ─── */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }

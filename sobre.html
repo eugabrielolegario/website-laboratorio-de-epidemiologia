@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --navy:      #10135c;
-  --navy-mid:  #0e1150;
-  --navy-light:#181b6e;
+  --navy:      #070926;
+  --navy-mid:  #050720;
+  --navy-light:#0f1245;
   --mint:      #99ffcd;
   --mint-dim:  rgba(153,255,205,0.12);
   --mint-dim2: rgba(153,255,205,0.06);
@@ -77,14 +77,16 @@ body {
 .link-arrow:hover { gap: 10px; }
 
 /* ─── HEADER ─── */
-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(7,9,38,0.92);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(153,255,205,0.08);
+}
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
   height: 68px; padding: 0 40px;
   max-width: 1300px; margin: 0 auto;
-  background: rgba(16,19,92,0.88);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
 }
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .logo-mark {
@@ -114,6 +116,15 @@ nav a:hover, nav a.active { color: var(--white); }
 .section-title .mint { color: var(--mint); }
 .section-body { font-size: 17px; color: var(--body-text); line-height: 1.7; max-width: 560px; }
 .sep { border-top: 1px solid var(--border); }
+
+/* ─── DYNAMIC SECTION BACKGROUNDS ─── */
+.page-hero { background: radial-gradient(ellipse 75% 65% at 70% 15%, rgba(153,255,205,0.09) 0%, transparent 55%), #070926; }
+.origem { background: radial-gradient(ellipse 55% 60% at 8% 55%, rgba(153,255,205,0.07) 0%, transparent 55%), #070926; }
+.mvv { background: radial-gradient(ellipse 70% 55% at 50% 110%, rgba(140,180,255,0.07) 0%, transparent 55%), #070926; }
+.manifesto { background: radial-gradient(ellipse 60% 65% at 90% 40%, rgba(153,255,205,0.08) 0%, transparent 55%), #070926; }
+.equipe { background: radial-gradient(ellipse 75% 50% at 15% 60%, rgba(140,180,255,0.06) 0%, transparent 55%), #070926; }
+.impacto { background: radial-gradient(ellipse 60% 70% at 80% 80%, rgba(153,255,205,0.08) 0%, transparent 55%), #070926; }
+.cta-final { background: radial-gradient(ellipse 65% 80% at 40% 50%, rgba(153,255,205,0.11) 0%, transparent 55%), #070926; }
 
 /* ─── PAGE HERO ─── */
 .page-hero {
@@ -570,7 +581,7 @@ footer { padding: 72px 0 32px; }
       <div class="hero-stat-divider"></div>
       <div class="hero-stat-item">
         <div class="hero-stat-val">GBD</div>
-        <div class="hero-stat-lbl">maior estudo epi<br/>do mundo · The Lancet</div>
+        <div class="hero-stat-lbl">maior estudo epi<br/>do mundo</div>
       </div>
       <div class="hero-stat-divider"></div>
       <div class="hero-stat-item">
@@ -608,13 +619,13 @@ footer { padding: 72px 0 32px; }
           <span class="mint">frustração legítima.</span>
         </h2>
         <p>
-          Lucas Santos estava treinando pesquisadores em um dos estudos mais relevantes da saúde global — o <em>Global Burden of Disease</em> — quando percebeu um padrão consistente: profissionais brilhantes, com formação sólida em medicina ou enfermagem, chegavam sem saber como planejar um estudo epidemiológico do zero.
+          Lucas Santos estava treinando pesquisadores em um dos estudos mais relevantes da saúde global, o <em>Global Burden of Disease</em>, quando percebeu um padrão consistente: profissionais brilhantes, com formação sólida em medicina ou enfermagem, chegavam sem saber como planejar um estudo epidemiológico do zero.
         </p>
         <p>
-          O problema não era falta de inteligência. Era falta de uma ponte entre o que os cursos de graduação ensinam — teoria e nomenclatura — e o que a prática científica real exige: decisões metodológicas, análise crítica de vieses, interpretação de dados e comunicação de resultados.
+          O problema não era falta de inteligência. Era falta de uma ponte entre o que os cursos de graduação ensinam, teoria e nomenclatura, e o que a prática científica real exige: decisões metodológicas, análise crítica de vieses, interpretação de dados e comunicação de resultados.
         </p>
         <p>
-          O LabEpi nasceu para ser essa ponte. Não mais um repositório de slides. Uma plataforma de formação real, baseada em evidências, construída por quem trabalha no front da pesquisa epidemiológica global.
+          O LabEpi nasceu para ser essa ponte. Uma plataforma de formação real, baseada em evidências, construída por quem trabalha no front da pesquisa epidemiológica global.
         </p>
       </div>
 
@@ -656,7 +667,7 @@ footer { padding: 72px 0 32px; }
             <div class="timeline-line" style="opacity:0.3;"></div>
           </div>
           <div class="timeline-body" style="opacity:0.6;">
-            <div class="timeline-year">2027 — Próximos passos</div>
+            <div class="timeline-year">Q2 2026 — Próximos passos</div>
             <div class="timeline-title">Cursos em vídeo + comunidade</div>
             <div class="timeline-desc">Lançamento dos primeiros cursos estruturados e expansão para uma comunidade ativa de pesquisadores.</div>
           </div>
@@ -763,27 +774,27 @@ footer { padding: 72px 0 32px; }
       </div>
 
       <p class="manifesto-body">
-        Acreditamos que a maioria dos pesquisadores em formação no Brasil não tem déficit de inteligência — tem déficit de acesso. Acesso a conteúdo que conecte teoria e prática, que cite fontes reais, que mostre o caminho entre uma ideia de pesquisa e um artigo publicado. O LabEpi existe para ser esse acesso.
+        Acreditamos que a maioria dos pesquisadores em formação no Brasil podem transpor o déficit de acesso que enfrentam atualmente. Acesso a conteúdo que conecte teoria e prática, que cite fontes reais, que mostre o caminho entre uma ideia de pesquisa e um artigo publicado. O LabEpi existe para ser esse acesso.
       </p>
 
       <div class="manifesto-pillars">
 
         <div class="pillar-card">
           <div class="pillar-num">01</div>
-          <h4>Ciência com citação, sempre</h4>
+          <h4>Informação baseada em evidências</h4>
           <p>Todo dado que publicamos tem fonte verificável. Nada de "estudos mostram" sem mostrar quais estudos.</p>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-num">02</div>
           <h4>Metodologia que você usa amanhã</h4>
-          <p>Não ensinamos o que é um estudo de coorte — ensinamos como montar, executar e analisar um.</p>
+          <p>Não ensinamos o que é um estudo de coorte, ensinamos como montar, executar e analisar um.</p>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-num">03</div>
-          <h4>Comunidade, não audiência</h4>
-          <p>Queremos pesquisadores que se ajudam, que questionam e que produzem ciência juntos — não consumidores passivos de conteúdo.</p>
+          <h4>Comunidade unida</h4>
+          <p>Nosso foco é unir pesquisadores e estudantes que se ajudam, que questionam e que produzem ciência juntos.</p>
         </div>
 
       </div>
@@ -814,13 +825,12 @@ footer { padding: 72px 0 32px; }
         </div>
         <div class="membro-body">
           <h3>Lucas Santos</h3>
-          <div class="membro-role">Epidemiologista · Fundador</div>
-          <p class="membro-bio">Epidemiologista com atuação ativa no Global Burden of Disease (GBD/IHME), o maior estudo epidemiológico do mundo, publicado em The Lancet. É o responsável pelo conteúdo científico do LabEpi — artigos, aulas e consultorias.</p>
+          <div class="membro-role">Epidemiologista · Fundador e Professor</div>
+          <p class="membro-bio">Epidemiologista com atuação ativa no Global Burden of Disease (GBD/IHME), o maior estudo epidemiológico do mundo, publicado em The Lancet. É o responsável pelo conteúdo científico do LabEpi, artigos, aulas e consultorias.</p>
           <div class="membro-tags">
             <span class="membro-tag">Epidemiologia</span>
             <span class="membro-tag">GBD / IHME</span>
             <span class="membro-tag">Metodologia</span>
-            <span class="membro-tag">The Lancet</span>
           </div>
         </div>
       </div>
@@ -832,9 +842,9 @@ footer { padding: 72px 0 32px; }
           <div class="membro-foto-deco"></div>
         </div>
         <div class="membro-body">
-          <h3>Olegas Oligar</h3>
-          <div class="membro-role">Cofundador · Plataforma &amp; Estratégia</div>
-          <p class="membro-bio">Responsável pela plataforma digital do LabEpi — do site ao conteúdo que chega até você. Garante que o conhecimento científico produzido pelo Lucas seja encontrável, acessível e bem apresentado.</p>
+          <h3>Gabriel Olegário</h3>
+          <div class="membro-role">Cofundador · Plataforma &amp; Dados</div>
+          <p class="membro-bio">Responsável pela plataforma digital do LabEpi, do site ao conteúdo que chega até você. Garante que o conhecimento científico produzido pelo Lucas seja encontrável, acessível e bem apresentado.</p>
           <div class="membro-tags">
             <span class="membro-tag">Plataforma</span>
             <span class="membro-tag">Estratégia digital</span>
@@ -851,8 +861,8 @@ footer { padding: 72px 0 32px; }
         </div>
         <div class="membro-body">
           <h3>André</h3>
-          <div class="membro-role">Design &amp; Produção Visual</div>
-          <p class="membro-bio">Responsável pela identidade visual e produção audiovisual do LabEpi. Garante que cada material — do slide de aula ao vídeo publicado — comunique com clareza e coerência visual.</p>
+          <div class="membro-role">Cofundador &amp; Produção Visual</div>
+          <p class="membro-bio">Responsável pela identidade visual e produção audiovisual do LabEpi. Garante que cada material, do slide de aula ao vídeo publicado, comunique com clareza e coerência visual.</p>
           <div class="membro-tags">
             <span class="membro-tag">Design</span>
             <span class="membro-tag">Vídeo</span>
@@ -906,10 +916,10 @@ footer { padding: 72px 0 32px; }
       </div>
       <div class="impacto-bar-logos">
         <div class="ref-badge">The Lancet</div>
-        <div class="ref-badge">PubMed / MEDLINE</div>
-        <div class="ref-badge">GBD / IHME</div>
-        <div class="ref-badge">SciELO BR</div>
-        <div class="ref-badge">BVS</div>
+        <div class="ref-badge">BMJ</div>
+        <div class="ref-badge">The New England Journal of Medicine</div>
+        <div class="ref-badge">JAMA</div>
+        <div class="ref-badge">Journal of Clinical Epidemiology</div>
       </div>
     </div>
 
