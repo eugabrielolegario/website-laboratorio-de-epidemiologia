@@ -1544,15 +1544,15 @@ nav a:hover, nav a.active { color: var(--white); }
   background: var(--mint-dim); border: 1px solid var(--border-mint);
   border-radius: 100px; padding: 4px 14px; width: fit-content;
 }
-.modalidade-card h3 { font-size: 22px; font-weight: 800; color: var(--white); line-height: 1.15; }
-.modalidade-card > p { font-size: 14px; color: var(--body-text); line-height: 1.7; }
+.modalidade-card h3 { font-size: 24px; font-weight: 800; color: var(--white); line-height: 1.15; }
+.modalidade-card > p { font-size: 15px; color: var(--body-text); line-height: 1.7; }
 .modalidade-list {
   list-style: none; display: flex; flex-direction: column; gap: 8px;
   padding: 0; margin: 0;
 }
 .modalidade-list li {
   display: flex; align-items: flex-start; gap: 10px;
-  font-size: 14px; color: var(--white-90); line-height: 1.5;
+  font-size: 15px; color: var(--white-90); line-height: 1.5;
 }
 .modalidade-list li::before { content: '✓'; color: var(--mint); font-weight: 800; flex-shrink: 0; font-size: 13px; margin-top: 1px; }
 .modalidade-triagem {
