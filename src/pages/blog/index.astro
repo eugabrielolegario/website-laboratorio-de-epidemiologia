@@ -6,6 +6,8 @@ const now = new Date();
 const posts = (await getCollection('blog', ({ data }) => !data.draft && data.date <= now))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))];
+
 function formatDate(date: Date) {
   return date.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
 }
@@ -47,37 +49,105 @@ function readingTime(body: string) {
 
 <section class="blog sep" style="padding-top: 80px;">
   <div class="container">
+    <div class="blog-categories">
+      <button class="blog-category-pill active" data-filter="todos">Todos</button>
+      {allTags.map((tag) => (
+        <button class="blog-category-pill" data-filter={tag}>{tag}</button>
+      ))}
+    </div>
+
     {posts.length === 0 ? (
       <div style="text-align:center; padding: 80px 0; color: var(--muted);">
         <p style="font-size:18px; margin-bottom: 12px;">Nenhum artigo publicado ainda.</p>
         <p>Volte em breve, publicamos semanalmente.</p>
       </div>
-    ) : (
-      <div class="blog-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
-        {posts.map((post) => (
-          <a href={`/blog/${post.slug}/`} class="blog-card">
-            <div class="blog-thumb">
-              {post.data.cover
-                ? <img src={post.data.cover} alt={post.data.title} />
-                : <div class="blog-thumb-inner">{post.data.tags[0] ?? 'LabEpi'}</div>
+    ) : (() => {
+      const [featured, ...rest] = posts;
+      return (
+        <>
+          <a
+            href={`/blog/${featured.slug}/`}
+            class="blog-featured"
+            data-tags={featured.data.tags?.join(',') ?? ''}
+          >
+            <div class="blog-featured-img">
+              {featured.data.cover
+                ? <img src={featured.data.cover} alt={featured.data.title} loading="lazy" decoding="async" />
+                : <div class="blog-thumb-inner">LabEpi</div>
               }
-              {post.data.tags[0] && <span class="blog-cat">{post.data.tags[0]}</span>}
             </div>
-            <div class="blog-body">
-              <h3>{post.data.title}</h3>
-              <p>{post.data.description}</p>
+            <div class="blog-featured-body">
+              <span class="blog-featured-eyebrow">Destaque</span>
+              <h2>{featured.data.title}</h2>
+              <p>{featured.data.description}</p>
               <div class="blog-meta">
-                <span>{readingTime(post.body)} min</span>
+                <span>{readingTime(featured.body)} min de leitura</span>
                 <span>·</span>
-                <span>{formatDate(post.data.date)}</span>
+                <span>{formatDate(featured.data.date)}</span>
               </div>
             </div>
           </a>
-        ))}
-      </div>
-    )}
+
+          {rest.length > 0 && (
+            <div class="blog-grid">
+              {rest.map((post) => (
+                <a
+                  href={`/blog/${post.slug}/`}
+                  class="blog-card"
+                  data-tags={post.data.tags?.join(',') ?? ''}
+                >
+                  <div class="blog-thumb">
+                    {post.data.cover
+                      ? <img src={post.data.cover} alt={post.data.title} loading="lazy" decoding="async" />
+                      : <div class="blog-thumb-inner">LabEpi</div>
+                    }
+                  </div>
+                  <div class="blog-body">
+                    <h3>{post.data.title}</h3>
+                    <p>{post.data.description}</p>
+                    <div class="blog-meta">
+                      <span>{readingTime(post.body)} min</span>
+                      <span>·</span>
+                      <span>{formatDate(post.data.date)}</span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+        </>
+      );
+    })()}
   </div>
 </section>
 
-</BaseLayout>
+<script>
+  const pills = document.querySelectorAll<HTMLButtonElement>('.blog-category-pill');
+  const featured = document.querySelector<HTMLElement>('.blog-featured');
+  const cards = document.querySelectorAll<HTMLElement>('.blog-card');
 
+  pills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const filter = pill.dataset.filter ?? 'todos';
+
+      pills.forEach((p) => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      if (filter === 'todos') {
+        if (featured) featured.style.display = '';
+        cards.forEach((card) => (card.style.display = ''));
+      } else {
+        if (featured) {
+          const tags = (featured.dataset.tags ?? '').split(',');
+          featured.style.display = tags.includes(filter) ? '' : 'none';
+        }
+        cards.forEach((card) => {
+          const tags = (card.dataset.tags ?? '').split(',');
+          card.style.display = tags.includes(filter) ? '' : 'none';
+        });
+      }
+    });
+  });
+</script>
+
+</BaseLayout>
