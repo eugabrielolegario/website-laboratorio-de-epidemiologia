@@ -275,7 +275,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="container">
     <div class="autoridade-grid">
       <div class="foto-frame" aria-label="Foto de Lucas Santos">
-        <img class="foto-img" src="/assets/images/lucas-santos.jpg" alt="Foto de Lucas Santos" />
+        <img class="foto-img" src="/assets/images/lucas-santos.jpg" alt="Foto de Lucas Santos" loading="lazy" decoding="async" />
         <div class="foto-badge">
           <div class="badge-dot"></div>
           <div class="badge-text">
@@ -793,15 +793,12 @@ document.addEventListener('astro:page-load', initFaq);
 <script is:inline>
   function ml_webform_success_39423275() {
     try {
-      window.top.location.href = 'http://laboratoriodeepidemiologia.com/obrigado-consultoria';
+      window.top.location.href = 'https://laboratoriodeepidemiologia.com/obrigado-consultoria';
     } catch (e) {
-      window.location.href = 'http://laboratoriodeepidemiologia.com/obrigado-consultoria';
+      window.location.href = 'https://laboratoriodeepidemiologia.com/obrigado-consultoria';
     }
   }
 </script>
-<script is:inline src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b"></script>
-<script is:inline>
-  fetch("https://assets.mailerlite.com/jsonp/2228964/forms/183763634667653069/takel");
-</script>
+<script is:inline async src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b"></script>
 
 </BaseLayout>

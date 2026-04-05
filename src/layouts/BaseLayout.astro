@@ -18,7 +18,7 @@ const { title, description = 'Epidemiologia aplicada para pesquisadores que quer
   <meta name="description" content={description}/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN97ZZ2BR0"></script>
   <script>
@@ -33,6 +33,13 @@ const { title, description = 'Epidemiologia aplicada para pesquisadores que quer
   <div class="scroll-progress-bar" aria-hidden="true"></div>
   <slot />
   <Footer />
+  <script is:inline>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2228964');
+  </script>
 </body>
 </html>
 
