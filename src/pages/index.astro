@@ -611,6 +611,205 @@ function readingTime(body: string) {
   </div>
 </section>
 
+<style>
+/* ══════════════════════════════════════════
+   HOME — LAYOUT OVERRIDES (visual only)
+══════════════════════════════════════════ */
+
+/* ─── HUB: Blog full-width horizontal + 3 cards abaixo ─── */
+.hub-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+}
+
+/* Blog card: linha 1, full-width, layout horizontal via CSS grid */
+.hub-card:nth-child(1) {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  column-gap: 48px;
+  align-items: center;
+  padding: 40px 36px;
+}
+/* deco barra no topo: position:absolute, não entra no grid */
+.hub-card:nth-child(1) .hub-card-icon {
+  grid-column: 1; grid-row: 1;
+  width: 64px; height: 64px; margin-bottom: 16px; align-self: start;
+}
+.hub-card:nth-child(1) .hub-card-label {
+  grid-column: 1; grid-row: 2; align-self: start; margin-bottom: 0;
+}
+.hub-card:nth-child(1) h3 {
+  grid-column: 2; grid-row: 1;
+  font-size: 26px; letter-spacing: -0.025em; margin-bottom: 12px;
+}
+.hub-card:nth-child(1) p {
+  grid-column: 2; grid-row: 2; margin-bottom: 0; font-size: 15px;
+}
+.hub-card:nth-child(1) .link-arrow {
+  grid-column: 2; grid-row: 3; margin-top: 20px;
+}
+
+/* Cards 2-4: linha 2, 3 colunas iguais (padrão existente) */
+
+/* ─── MISSÃO NUMBERS: strip contínua ─── */
+.missao-full .missao-numbers {
+  display: flex; gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-top: 48px;
+}
+.missao-full .num-card {
+  flex: 1; background: transparent;
+  border: none; border-right: 1px solid var(--border);
+  border-radius: 0;
+}
+.missao-full .num-card:last-child { border-right: none; }
+
+/* ─── DIFERENCIAIS: 2 grandes (row 1) + 4 pequenos (row 2) ─── */
+.diferenciais { background: var(--navy-light); }
+.diff-grid { grid-template-columns: repeat(4, 1fr); }
+
+.diff-card:nth-child(1) { grid-column: span 2; }
+.diff-card:nth-child(2) { grid-column: span 2; }
+/* cards 3-6 ficam em 1 coluna cada automaticamente */
+
+/* Cards grandes: mais espaço e tipografia maior */
+.diff-card:nth-child(1) .diff-icon,
+.diff-card:nth-child(2) .diff-icon { width: 48px; height: 48px; }
+.diff-card:nth-child(1) h3,
+.diff-card:nth-child(2) h3 { font-size: 18px; margin-bottom: 10px; }
+.diff-card:nth-child(1) p,
+.diff-card:nth-child(2) p { font-size: 14px; }
+
+/* Cards pequenos: mais compactos */
+.diff-card:nth-child(n+3) { padding: 22px 20px; }
+.diff-card:nth-child(n+3) .diff-icon { width: 36px; height: 36px; margin-bottom: 14px; }
+.diff-card:nth-child(n+3) h3 { font-size: 14px; margin-bottom: 6px; }
+.diff-card:nth-child(n+3) p { font-size: 12px; line-height: 1.5; margin-bottom: 10px; }
+.diff-card:nth-child(n+3) .diff-tag { font-size: 9px; }
+
+/* ─── PARA QUEM: linhas horizontais ─── */
+.pq-grid { display: flex; flex-direction: column; gap: 0; }
+.pq-card {
+  display: grid;
+  grid-template-columns: 68px 1fr auto;
+  column-gap: 28px;
+  align-items: center;
+  padding: 32px 0;
+  background: transparent; border: none; border-radius: 0;
+  border-top: 1px solid var(--border);
+  transform: none !important; box-shadow: none !important;
+  position: relative; /* manter pq-num no fluxo */
+}
+.pq-card:last-child { border-bottom: 1px solid var(--border); }
+.pq-card:hover { background: transparent; border-top-color: var(--border-mint); }
+.pq-num {
+  position: static;
+  font-size: 38px; font-weight: 900; color: var(--white-15);
+  line-height: 1; letter-spacing: -0.04em;
+  grid-column: 1; grid-row: 1 / 4;
+  align-self: center; transition: color 0.2s;
+}
+.pq-card:hover .pq-num { color: rgba(153,255,205,0.2); }
+.pq-tag  { grid-column: 2; grid-row: 1; margin-bottom: 4px; }
+.pq-card h3 { grid-column: 2; grid-row: 2; margin-bottom: 6px; font-size: 18px; line-height: 1.3; }
+.pq-card p  { grid-column: 2; grid-row: 3; margin-bottom: 0; font-size: 14px; }
+.pq-card .link-arrow {
+  grid-column: 3; grid-row: 1 / 4; align-self: center; flex-shrink: 0;
+}
+
+/* ─── BLOG HOME: post em destaque + 2 menores ─── */
+.blog .blog-grid {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+/* Card 1: full-width, horizontal, featured */
+.blog .blog-card:nth-child(1) {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.blog .blog-card:nth-child(1) .blog-thumb {
+  aspect-ratio: 3/2; height: 100%;
+}
+.blog .blog-card:nth-child(1) .blog-body {
+  padding: 40px 36px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.blog .blog-card:nth-child(1) h3 {
+  font-size: 22px; letter-spacing: -0.02em; margin-bottom: 12px;
+}
+.blog .blog-card:nth-child(1) p {
+  font-size: 14px; line-height: 1.7; margin-bottom: 20px;
+}
+.blog .blog-card:nth-child(1) .blog-meta { margin-top: auto; }
+
+/* Cards 2-3: menores, grade abaixo */
+.blog .blog-card:nth-child(2),
+.blog .blog-card:nth-child(3) { grid-column: auto; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 960px) {
+  /* Hub: blog volta ao layout vertical padrão */
+  .hub-grid { grid-template-columns: 1fr; }
+  .hub-card:nth-child(1) {
+    display: block; padding: 36px 32px; grid-column: auto;
+  }
+  .hub-card:nth-child(1) .hub-card-icon { width: 48px; height: 48px; margin-bottom: 20px; }
+  .hub-card:nth-child(1) .hub-card-label { margin-bottom: 10px; }
+  .hub-card:nth-child(1) h3 { font-size: 20px; margin-bottom: 10px; }
+  .hub-card:nth-child(1) p { margin-bottom: 20px; }
+  .hub-card:nth-child(1) .link-arrow { margin-top: 0; }
+
+  /* Numbers: 2x2 */
+  .missao-full .missao-numbers { flex-wrap: wrap; }
+  .missao-full .num-card { flex: 1 1 50%; }
+  .missao-full .num-card:nth-child(2) { border-right: none; }
+  .missao-full .num-card:nth-child(3) { border-top: 1px solid var(--border); }
+  .missao-full .num-card:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+
+  /* Diferenciais: 2 colunas */
+  .diff-grid { grid-template-columns: repeat(2, 1fr); }
+  .diff-card:nth-child(1), .diff-card:nth-child(2) { grid-column: auto; }
+  .diff-card:nth-child(n+3) { padding: 28px 24px; }
+  .diff-card:nth-child(n+3) .diff-icon { width: 40px; height: 40px; margin-bottom: 18px; }
+  .diff-card:nth-child(n+3) h3 { font-size: 16px; margin-bottom: 8px; }
+  .diff-card:nth-child(n+3) p { font-size: 13px; }
+
+  /* Para quem: 2 colunas com cards normais */
+  .pq-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .pq-card {
+    display: block; padding: 36px 28px;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    background: var(--white-04); position: relative;
+  }
+  .pq-card:hover { background: rgba(255,255,255,0.07); border-color: var(--border-mint); }
+  .pq-num { position: absolute; top: 20px; right: 24px; font-size: 72px; color: var(--white-04); }
+  .pq-card:hover .pq-num { color: rgba(153,255,205,0.05); }
+  .pq-tag { margin-bottom: 14px; }
+  .pq-card h3 { font-size: 19px; margin-bottom: 12px; }
+  .pq-card p { margin-bottom: 22px; }
+  .pq-card .link-arrow { grid-column: auto; grid-row: auto; }
+
+  /* Blog: card 1 volta a vertical */
+  .blog .blog-grid { grid-template-columns: 1fr; }
+  .blog .blog-card:nth-child(1) { grid-column: auto; display: flex; flex-direction: column; }
+  .blog .blog-card:nth-child(1) .blog-thumb { aspect-ratio: 16/9; height: auto; }
+  .blog .blog-card:nth-child(1) .blog-body { padding: 24px; }
+  .blog .blog-card:nth-child(1) h3 { font-size: 16px; }
+}
+@media (max-width: 600px) {
+  .pq-grid { grid-template-columns: 1fr; }
+  .diff-grid { grid-template-columns: 1fr; }
+  .diff-card:nth-child(1), .diff-card:nth-child(2) { grid-column: auto; }
+  .missao-full .num-card { flex: 1 1 100%; border-right: none; border-top: 1px solid var(--border); }
+  .missao-full .num-card:first-child { border-top: none; }
+}
+</style>
+
 <script>
 // ── Generic slider factory ──
 function initSlider(opts: {

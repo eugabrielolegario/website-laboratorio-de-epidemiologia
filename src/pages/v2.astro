@@ -1,0 +1,1176 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const now = new Date();
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.date <= now))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
+}
+function readingTime(body: string) {
+  return Math.ceil(body.split(/\s+/).length / 200);
+}
+---
+<BaseLayout title="Laboratório de Epidemiologia — Epidemiologia Aplicada no Brasil">
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section class="v2-hero">
+  <div class="v2-hero-orb v2-hero-orb-1" aria-hidden="true"></div>
+  <div class="v2-hero-orb v2-hero-orb-2" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="v2-hero-inner">
+      <div class="v2-hero-badge">
+        <span class="v2-dot v2-dot--mint"></span>
+        Hub de Epidemiologia Aplicada no Brasil
+      </div>
+      <h1 class="v2-hero-h1">
+        Para quem quer<br/>
+        pesquisar de <em>verdade.</em>
+      </h1>
+      <p class="v2-hero-sub">
+        Do delineamento à publicação. Com rigor técnico, base científica e quem já publicou no maior estudo de saúde do mundo.
+      </p>
+      <div class="v2-hero-actions">
+        <a href="#lead-magnet" class="v2-btn-primary">
+          <svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M1 10v1a2 2 0 002 2h8a2 2 0 002-2v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Baixe o Guia Grátis
+        </a>
+        <a href="/sobre/" class="v2-btn-ghost">Conheça o LabEpi</a>
+      </div>
+
+      <!-- Hero visual / placeholder -->
+      <div class="v2-hero-visual" aria-hidden="true">
+        <div class="v2-hero-card v2-hero-card--lg">
+          <div class="v2-hero-card-tag">Global Burden of Disease</div>
+          <div class="v2-hero-card-line"></div>
+          <svg class="v2-hero-chart" viewBox="0 0 200 60" fill="none">
+            <polyline points="0,50 30,38 60,42 90,20 120,28 150,10 180,15 200,8"
+              stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <polyline points="0,50 30,38 60,42 90,20 120,28 150,10 180,15 200,8 200,60 0,60"
+              fill="url(#chartGrad)" opacity="0.2"/>
+            <defs>
+              <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#99ffcd"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="v2-hero-card-meta">
+            <span>600+ citações</span><span>·</span><span>The Lancet</span>
+          </div>
+        </div>
+        <div class="v2-hero-card-stack">
+          <div class="v2-hero-card v2-hero-card--sm">
+            <span class="v2-hero-card-num">2,3M</span>
+            <span class="v2-hero-card-lbl">pesquisadores de saúde no Brasil</span>
+          </div>
+          <div class="v2-hero-card v2-hero-card--sm v2-hero-card--accent">
+            <span class="v2-hero-card-num v2-hero-card-num--mint">GBD</span>
+            <span class="v2-hero-card-lbl">maior estudo epidemiológico do mundo</span>
+          </div>
+          <div class="v2-hero-card v2-hero-card--sm">
+            <span class="v2-hero-card-num">150+</span>
+            <span class="v2-hero-card-lbl">países impactados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════════ -->
+<div class="v2-statsbar">
+  <div class="container">
+    <div class="v2-statsbar-grid">
+      <div class="v2-statitem">
+        <span class="v2-statitem-val">GBD</span>
+        <span class="v2-statitem-lbl">Maior estudo epidemiológico do mundo</span>
+      </div>
+      <div class="v2-statitem-sep"></div>
+      <div class="v2-statitem">
+        <span class="v2-statitem-val">The Lancet</span>
+        <span class="v2-statitem-lbl">Publicação do fundador</span>
+      </div>
+      <div class="v2-statitem-sep"></div>
+      <div class="v2-statitem">
+        <span class="v2-statitem-val">600+</span>
+        <span class="v2-statitem-lbl">Citações em artigos científicos</span>
+      </div>
+      <div class="v2-statitem-sep"></div>
+      <div class="v2-statitem">
+        <span class="v2-statitem-val">150+</span>
+        <span class="v2-statitem-lbl">Países nos estudos GBD</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MANIFESTO
+══════════════════════════════════════════ -->
+<section class="v2-manifesto">
+  <div class="container">
+    <div class="v2-manifesto-grid">
+      <div class="v2-manifesto-left">
+        <div class="section-tag">O que somos</div>
+        <div class="v2-manifesto-quote">
+          "A maioria dos cursos de metodologia ensina a teoria. O LabEpi ensina o que fazer quando você tem um projeto real, um prazo real e uma dúvida real."
+        </div>
+        <a href="/sobre/" class="v2-link-arrow">
+          Nossa história
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="v2-manifesto-right">
+        <div class="v2-manifesto-img" aria-hidden="true">
+          <svg viewBox="0 0 400 300" fill="none" width="100%" height="100%">
+            <rect width="400" height="300" fill="#0f1245"/>
+            <!-- Grid lines -->
+            <line x1="0" y1="60" x2="400" y2="60" stroke="#ffffff" stroke-opacity="0.04"/>
+            <line x1="0" y1="120" x2="400" y2="120" stroke="#ffffff" stroke-opacity="0.04"/>
+            <line x1="0" y1="180" x2="400" y2="180" stroke="#ffffff" stroke-opacity="0.04"/>
+            <line x1="0" y1="240" x2="400" y2="240" stroke="#ffffff" stroke-opacity="0.04"/>
+            <line x1="80" y1="0" x2="80" y2="300" stroke="#ffffff" stroke-opacity="0.04"/>
+            <line x1="160" y1="0" x2="160" y2="300" stroke="#ffffff" stroke-opacity="0.04"/>
+            <line x1="240" y1="0" x2="240" y2="300" stroke="#ffffff" stroke-opacity="0.04"/>
+            <line x1="320" y1="0" x2="320" y2="300" stroke="#ffffff" stroke-opacity="0.04"/>
+            <!-- Bars -->
+            <rect x="30" y="180" width="36" height="80" rx="4" fill="#8cb4ff" opacity="0.5"/>
+            <rect x="90" y="130" width="36" height="130" rx="4" fill="#8cb4ff" opacity="0.6"/>
+            <rect x="150" y="100" width="36" height="160" rx="4" fill="#99ffcd" opacity="0.7"/>
+            <rect x="210" y="60" width="36" height="200" rx="4" fill="#99ffcd" opacity="0.9"/>
+            <rect x="270" y="90" width="36" height="170" rx="4" fill="#8cb4ff" opacity="0.5"/>
+            <rect x="330" y="140" width="36" height="120" rx="4" fill="#8cb4ff" opacity="0.4"/>
+            <!-- Labels -->
+            <text x="48" y="292" font-size="9" fill="#7a85b8" text-anchor="middle" font-family="sans-serif">2019</text>
+            <text x="108" y="292" font-size="9" fill="#7a85b8" text-anchor="middle" font-family="sans-serif">2020</text>
+            <text x="168" y="292" font-size="9" fill="#99ffcd" text-anchor="middle" font-family="sans-serif">2021</text>
+            <text x="228" y="292" font-size="9" fill="#99ffcd" text-anchor="middle" font-family="sans-serif">2022</text>
+            <text x="288" y="292" font-size="9" fill="#7a85b8" text-anchor="middle" font-family="sans-serif">2023</text>
+            <text x="348" y="292" font-size="9" fill="#7a85b8" text-anchor="middle" font-family="sans-serif">2024</text>
+            <!-- Tag -->
+            <rect x="12" y="12" width="160" height="24" rx="6" fill="#99ffcd" fill-opacity="0.12"/>
+            <text x="92" y="28" font-size="10" fill="#99ffcd" text-anchor="middle" font-family="sans-serif" font-weight="700" letter-spacing="1">GBD · CITAÇÕES POR ANO</text>
+          </svg>
+        </div>
+        <p class="v2-manifesto-body">
+          Somos a primeira plataforma brasileira dedicada exclusivamente a epidemiologia aplicada. Todo conteúdo tem citações verificáveis — sem "estudos mostram" sem mostrar quais estudos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     OFFERINGS — grid misto
+══════════════════════════════════════════ -->
+<section class="v2-offerings">
+  <div class="container">
+    <div class="v2-section-head">
+      <div class="section-tag">O que oferecemos</div>
+      <h2 class="v2-h2">Um ecossistema completo<br/>para sua pesquisa.</h2>
+    </div>
+    <div class="v2-offer-grid">
+
+      <!-- Blog — card grande -->
+      <a href="/blog/" class="v2-offer-card v2-offer-card--blog">
+        <div class="v2-offer-visual">
+          <svg viewBox="0 0 300 180" fill="none" width="100%" height="100%">
+            <rect width="300" height="180" fill="#070926"/>
+            <rect x="16" y="16" width="180" height="10" rx="3" fill="#99ffcd" opacity="0.15"/>
+            <rect x="16" y="34" width="120" height="8" rx="3" fill="#ffffff" opacity="0.08"/>
+            <rect x="16" y="50" width="150" height="8" rx="3" fill="#ffffff" opacity="0.06"/>
+            <rect x="16" y="66" width="100" height="8" rx="3" fill="#ffffff" opacity="0.06"/>
+            <rect x="16" y="90" width="268" height="1" fill="#ffffff" opacity="0.06"/>
+            <rect x="16" y="106" width="200" height="8" rx="3" fill="#ffffff" opacity="0.08"/>
+            <rect x="16" y="122" width="160" height="8" rx="3" fill="#ffffff" opacity="0.06"/>
+            <rect x="16" y="138" width="180" height="8" rx="3" fill="#ffffff" opacity="0.05"/>
+            <circle cx="272" cy="24" r="20" fill="#99ffcd" opacity="0.08"/>
+            <circle cx="272" cy="24" r="12" fill="#99ffcd" opacity="0.1"/>
+          </svg>
+        </div>
+        <div class="v2-offer-body">
+          <span class="v2-offer-num">01</span>
+          <span class="v2-offer-tag">Conteúdo gratuito</span>
+          <h3>Blog e Artigos</h3>
+          <p>Epidemiologia aplicada, metodologia e estatística, com citações verificáveis. Publicado semanalmente.</p>
+          <span class="v2-link-arrow">Ler os artigos <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Coluna direita com 3 cards menores -->
+      <div class="v2-offer-col">
+
+        <a href="#ebooks" class="v2-offer-card v2-offer-card--ebooks v2-offer-card--sm">
+          <div class="v2-offer-visual">
+            <svg viewBox="0 0 200 100" fill="none" width="100%" height="100%">
+              <rect width="200" height="100" fill="#070926"/>
+              <rect x="12" y="12" width="40" height="56" rx="4" fill="#8cb4ff" opacity="0.15"/>
+              <rect x="16" y="18" width="32" height="3" rx="1" fill="#8cb4ff" opacity="0.4"/>
+              <rect x="16" y="24" width="26" height="3" rx="1" fill="#8cb4ff" opacity="0.3"/>
+              <rect x="16" y="30" width="30" height="3" rx="1" fill="#8cb4ff" opacity="0.2"/>
+              <rect x="60" y="12" width="40" height="56" rx="4" fill="#99ffcd" opacity="0.12"/>
+              <rect x="64" y="18" width="32" height="3" rx="1" fill="#99ffcd" opacity="0.4"/>
+              <rect x="64" y="24" width="26" height="3" rx="1" fill="#99ffcd" opacity="0.3"/>
+              <rect x="108" y="12" width="40" height="56" rx="4" fill="#8cb4ff" opacity="0.1"/>
+              <text x="12" y="90" font-size="9" fill="#7a85b8" font-family="sans-serif">4 e-books disponíveis</text>
+            </svg>
+          </div>
+          <div class="v2-offer-body">
+            <span class="v2-offer-num">02</span>
+            <span class="v2-offer-tag">Materiais de apoio</span>
+            <h3>Ebooks Temáticos</h3>
+            <p>Guias práticos e densos sobre delineamento, estatística e revisão sistemática.</p>
+            <span class="v2-link-arrow">Ver ebooks <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </a>
+
+        <a href="/consultoria/" class="v2-offer-card v2-offer-card--consultoria v2-offer-card--sm v2-offer-card--accent">
+          <div class="v2-offer-body">
+            <span class="v2-offer-num v2-offer-num--dark">04</span>
+            <span class="v2-offer-tag v2-offer-tag--dark">Atendimento personalizado</span>
+            <h3 class="v2-offer-h3--dark">Consultoria Metodológica</h3>
+            <p class="v2-offer-p--dark">Suporte direto com Lucas Santos. Delineamento, análise estatística, estrutura de artigo.</p>
+            <span class="v2-link-arrow v2-link-arrow--dark">Saber mais <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CURSOS — SLIDER
+══════════════════════════════════════════ -->
+<section class="v2-cursos">
+  <div class="container">
+    <div class="v2-cursos-head">
+      <div>
+        <div class="v2-em-breve">
+          <svg width="6" height="6" viewBox="0 0 6 6" fill="#ffd36e"><circle cx="3" cy="3" r="3"/></svg>
+          Em breve · 2026
+        </div>
+        <div class="section-tag">Cursos &amp; Formação</div>
+        <h2 class="v2-h2">Do <span class="mint">fundamento</span><br/>à publicação.</h2>
+      </div>
+      <div class="v2-slider-nav">
+        <button class="v2-slider-btn" id="v2Prev" aria-label="Anterior">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="v2-slider-btn" id="v2Next" aria-label="Próximo">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="v2-slider-viewport">
+      <div class="v2-slider-track" id="v2Track">
+
+        <div class="v2-course-card">
+          <div class="v2-course-thumb v2-course-thumb--1">
+            <img src="/assets/images/curso-pos-graduacao.jpg" alt="Descomplicando a Pós-Graduação" loading="lazy" onerror="this.style.display='none'" />
+            <div class="v2-course-placeholder" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 22 22" fill="none"><rect x="2" y="3" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M9 8l5 3-5 3V8Z" fill="currentColor"/></svg>
+            </div>
+            <span class="v2-course-cat">Pós-graduação</span>
+          </div>
+          <div class="v2-course-body">
+            <h3>Descomplicando a Pós-Graduação</h3>
+            <p>Estruture seu projeto, organize estudos e desenvolva pensamento científico desde os primeiros passos.</p>
+            <div class="v2-course-footer">
+              <span>Módulo introdutório</span>
+              <a href="#" class="v2-link-arrow" style="font-size:13px;">Avise-me <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="v2-course-card">
+          <div class="v2-course-thumb v2-course-thumb--2">
+            <img src="/assets/images/curso-metodologia.jpg" alt="Metodologia de Pesquisa" loading="lazy" onerror="this.style.display='none'" />
+            <div class="v2-course-placeholder" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 22 22" fill="none"><path d="M2 18 C4 18 5 10 8 10 C11 10 11 14 14 7 C17 0 18 5 20 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <span class="v2-course-cat">Metodologia</span>
+          </div>
+          <div class="v2-course-body">
+            <h3>Descomplicando a Metodologia de Pesquisa</h3>
+            <p>Perguntas PICO, delineamentos e estrutura de estudos com rigor e lógica aplicada.</p>
+            <div class="v2-course-footer">
+              <span>Módulo avançado</span>
+              <a href="#" class="v2-link-arrow" style="font-size:13px;">Avise-me <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="v2-course-card">
+          <div class="v2-course-thumb v2-course-thumb--3">
+            <img src="/assets/images/curso-estatistica.jpg" alt="Estatística em Pesquisa" loading="lazy" onerror="this.style.display='none'" />
+            <div class="v2-course-placeholder" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 22 22" fill="none"><rect x="2" y="10" width="4" height="10" rx="1" fill="currentColor" opacity="0.5"/><rect x="9" y="6" width="4" height="14" rx="1" fill="currentColor" opacity="0.7"/><rect x="16" y="2" width="4" height="18" rx="1" fill="currentColor"/></svg>
+            </div>
+            <span class="v2-course-cat">Estatística</span>
+          </div>
+          <div class="v2-course-body">
+            <h3>Descomplicando a Estatística em Pesquisa</h3>
+            <p>Do p-valor ao intervalo de confiança, com exemplos de estudos publicados no PubMed e SciELO.</p>
+            <div class="v2-course-footer">
+              <span>Módulo avançado</span>
+              <a href="#" class="v2-link-arrow" style="font-size:13px;">Avise-me <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="v2-course-card">
+          <div class="v2-course-thumb v2-course-thumb--4">
+            <img src="/assets/images/curso-gbd.jpg" alt="GBD e Epidemiologia Global" loading="lazy" onerror="this.style.display='none'" />
+            <div class="v2-course-placeholder" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="2"/><path d="M2 11h18M11 2c-2 3-3 6-3 9s1 6 3 9M11 2c2 3 3 6 3 9s-1 6-3 9" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <span class="v2-course-cat">GBD · Global</span>
+          </div>
+          <div class="v2-course-body">
+            <h3>Descomplicando o GBD e a Epidemiologia Global</h3>
+            <p>Entenda o maior estudo do mundo e aplique DALY, YLL e YLD na sua pesquisa.</p>
+            <div class="v2-course-footer">
+              <span>Módulo especializado</span>
+              <a href="#" class="v2-link-arrow" style="font-size:13px;">Avise-me <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="v2-slider-dots" id="v2Dots"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     AUTORIDADE — LUCAS
+══════════════════════════════════════════ -->
+<section class="v2-authority">
+  <div class="container">
+    <div class="v2-authority-grid">
+
+      <div class="v2-authority-photo-wrap">
+        <div class="v2-authority-photo">
+          <img src="/assets/images/lucas-santos.jpg" alt="Lucas Santos" loading="lazy"
+               onerror="this.parentElement.classList.add('v2-authority-photo--fallback')" />
+          <div class="v2-authority-photo-fallback" aria-hidden="true">
+            <svg viewBox="0 0 200 260" fill="none" width="100%" height="100%">
+              <rect width="200" height="260" fill="#0f1245"/>
+              <circle cx="100" cy="90" r="44" fill="#99ffcd" opacity="0.08"/>
+              <circle cx="100" cy="90" r="30" fill="#99ffcd" opacity="0.1"/>
+              <path d="M40 220 C40 180 68 160 100 160 C132 160 160 180 160 220" fill="#99ffcd" opacity="0.06"/>
+              <text x="100" y="250" font-size="10" fill="#7a85b8" text-anchor="middle" font-family="sans-serif">Lucas Santos</text>
+            </svg>
+          </div>
+        </div>
+        <div class="v2-authority-badge">
+          <div class="v2-dot v2-dot--amber"></div>
+          <div>
+            <strong>Publicado no The Lancet</strong>
+            <span>Colaborador Sênior, GBD · IHME</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="v2-authority-content">
+        <div class="section-tag">Quem está por trás</div>
+        <h2 class="v2-h2">Aprenda com quem publicou<br/>no <span class="mint">The Lancet.</span></h2>
+        <p>Lucas Santos é epidemiologista, clínico e supervisor clínico. Cofundador e autoridade técnica do LabEpi.</p>
+        <p>Sua participação no Global Burden of Disease — o maior estudo epidemiológico colaborativo do mundo, coordenado pelo IHME da Universidade de Washington — sustenta cada conteúdo que o LabEpi produz.</p>
+        <div class="v2-creds">
+          <div class="v2-cred">
+            <span class="v2-cred-icon">◉</span>
+            Colaborador Sênior do GBD, IHME / Universidade de Washington
+          </div>
+          <div class="v2-cred">
+            <span class="v2-cred-icon">◉</span>
+            Publicação no The Lancet, principal periódico de saúde global
+          </div>
+          <div class="v2-cred">
+            <span class="v2-cred-icon">◉</span>
+            Epidemiologista clínico e supervisor clínico ativo
+          </div>
+        </div>
+        <a href="/sobre/" class="v2-link-arrow">
+          Conheça a história do LabEpi
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PARA QUEM
+══════════════════════════════════════════ -->
+<section class="v2-forwhom">
+  <div class="container">
+    <div class="v2-section-head">
+      <div class="section-tag">Para quem é</div>
+      <h2 class="v2-h2">Feito para quem está<br/><span class="mint">tentando fazer ciência.</span></h2>
+    </div>
+    <div class="v2-profiles">
+      <a href="/blog/" class="v2-profile">
+        <span class="v2-profile-num">01</span>
+        <div class="v2-profile-body">
+          <div class="v2-profile-tag">Graduação · Iniciação Científica</div>
+          <h3>Está começando na pesquisa</h3>
+          <p>Entrou na IC ou começou um projeto sem base em metodologia. Precisa de direção clara, do delineamento ao passo a passo.</p>
+        </div>
+        <svg class="v2-profile-arrow" width="20" height="20" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#lead-magnet" class="v2-profile">
+        <span class="v2-profile-num">02</span>
+        <div class="v2-profile-body">
+          <div class="v2-profile-tag">Mestrado · Doutorado</div>
+          <h3>Está no meio da pós-graduação</h3>
+          <p>Tem prazo, orientador exigente e uma dúvida metodológica específica que está travando o projeto.</p>
+        </div>
+        <svg class="v2-profile-arrow" width="20" height="20" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/consultoria/" class="v2-profile">
+        <span class="v2-profile-num">03</span>
+        <div class="v2-profile-body">
+          <div class="v2-profile-tag">Pesquisador Ativo</div>
+          <h3>Quer rigor para publicar</h3>
+          <p>Já publicou artigos, mas quer garantir que delineamento e análise passam pela revisão de um periódico de alto impacto.</p>
+        </div>
+        <svg class="v2-profile-arrow" width="20" height="20" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     LEAD MAGNET
+══════════════════════════════════════════ -->
+<section class="v2-lead" id="lead-magnet">
+  <div class="container">
+    <div class="v2-lead-grid">
+      <div class="v2-pdf-wrap">
+        <div class="v2-pdf">
+          <div class="v2-pdf-tag">Laboratório de Epidemiologia · Guia Gratuito</div>
+          <h4>Guia Prático de Delineamento de Estudo</h4>
+          <div class="v2-pdf-divider"></div>
+          <div class="v2-pdf-author">
+            <strong>Lucas Santos</strong>
+            <span>Colaborador GBD · The Lancet</span>
+          </div>
+          <div class="v2-pdf-glow"></div>
+          <!-- Faux page shadow -->
+          <div class="v2-pdf-shadow"></div>
+        </div>
+      </div>
+      <div class="v2-lead-content">
+        <div class="section-tag">Comece por aqui</div>
+        <h2 class="v2-h2">Baixe grátis e aprenda a<br/>escolher o método <span class="mint">certo.</span></h2>
+        <p>Transversal, coorte, caso-controle e ensaio clínico — explicados na prática. Com erros comuns e como justificar a escolha no seu projeto.</p>
+        <div class="ml-embedded" data-form="EexCX4"></div>
+        <p class="v2-micro">Gratuito · Sem spam · Cancele quando quiser</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BLOG
+══════════════════════════════════════════ -->
+{posts.length > 0 && (() => {
+  const [featured, ...rest] = posts;
+  return (
+    <section class="v2-blog">
+      <div class="container">
+        <div class="v2-blog-head">
+          <div>
+            <div class="section-tag">Blog</div>
+            <h2 class="v2-h2">Conteúdo gratuito,<br/>toda semana.</h2>
+          </div>
+          <a href="/blog/" class="v2-link-arrow" style="flex-shrink:0; align-self:flex-end">
+            Ver todos
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <a href={`/blog/${featured.slug}/`} class="v2-blog-featured">
+          <div class="v2-blog-featured-img">
+            {featured.data.cover
+              ? <img src={featured.data.cover} alt={featured.data.title} loading="lazy" decoding="async" />
+              : <div class="v2-blog-ph" aria-hidden="true">
+                  <svg viewBox="0 0 400 240" fill="none" width="100%" height="100%">
+                    <rect width="400" height="240" fill="#0f1245"/>
+                    <rect x="20" y="20" width="120" height="8" rx="3" fill="#99ffcd" opacity="0.15"/>
+                    <rect x="20" y="40" width="300" height="16" rx="4" fill="#ffffff" opacity="0.1"/>
+                    <rect x="20" y="62" width="260" height="16" rx="4" fill="#ffffff" opacity="0.07"/>
+                    <rect x="20" y="90" width="360" height="1" fill="#ffffff" opacity="0.05"/>
+                    <rect x="20" y="106" width="340" height="8" rx="3" fill="#ffffff" opacity="0.06"/>
+                    <rect x="20" y="122" width="280" height="8" rx="3" fill="#ffffff" opacity="0.05"/>
+                    <rect x="20" y="138" width="320" height="8" rx="3" fill="#ffffff" opacity="0.04"/>
+                    <circle cx="360" cy="190" r="50" fill="#99ffcd" opacity="0.04"/>
+                  </svg>
+                </div>
+            }
+          </div>
+          <div class="v2-blog-featured-body">
+            <span class="v2-blog-eyebrow">Destaque</span>
+            <h3>{featured.data.title}</h3>
+            <p>{featured.data.description}</p>
+            <div class="v2-blog-meta">
+              <span>{readingTime(featured.body)} min de leitura</span>
+              <span>·</span>
+              <span>{formatDate(featured.data.date)}</span>
+            </div>
+          </div>
+        </a>
+
+        {rest.length > 0 && (
+          <div class="v2-blog-grid">
+            {rest.map((post) => (
+              <a href={`/blog/${post.slug}/`} class="v2-blog-card">
+                <div class="v2-blog-thumb">
+                  {post.data.cover
+                    ? <img src={post.data.cover} alt={post.data.title} loading="lazy" decoding="async" />
+                    : <div class="v2-blog-ph" aria-hidden="true">
+                        <svg viewBox="0 0 200 120" fill="none" width="100%" height="100%">
+                          <rect width="200" height="120" fill="#0f1245"/>
+                          <rect x="12" y="12" width="80" height="6" rx="2" fill="#99ffcd" opacity="0.12"/>
+                          <rect x="12" y="26" width="160" height="10" rx="3" fill="#ffffff" opacity="0.08"/>
+                          <rect x="12" y="42" width="130" height="10" rx="3" fill="#ffffff" opacity="0.06"/>
+                          <circle cx="170" cy="95" r="30" fill="#8cb4ff" opacity="0.04"/>
+                        </svg>
+                      </div>
+                  }
+                </div>
+                <div class="v2-blog-card-body">
+                  <h4>{post.data.title}</h4>
+                  <div class="v2-blog-meta">
+                    <span>{readingTime(post.body)} min</span>
+                    <span>·</span>
+                    <span>{formatDate(post.data.date)}</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+})()}
+
+<!-- ══════════════════════════════════════════
+     CTA FINAL
+══════════════════════════════════════════ -->
+<section class="v2-cta-final">
+  <div class="v2-cta-inner">
+    <p class="v2-cta-eyebrow">Consultoria Metodológica</p>
+    <h2 class="v2-cta-h2">Suporte direto com quem<br/>publicou no The Lancet.</h2>
+    <p class="v2-cta-sub">Para pesquisadores que precisam de rigor metodológico sem comprometer o prazo.</p>
+    <a href="/consultoria/" class="v2-btn-dark">
+      Quero a consultoria
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <p class="v2-cta-micro">Vagas limitadas · Lucas retorna em até 48h</p>
+  </div>
+</section>
+
+<style>
+/* ═══ RESET / TOKENS ═══ */
+.mint { color: var(--mint); }
+
+/* ═══ HERO ═══ */
+.v2-hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 140px 0 80px;
+  background: var(--navy);
+}
+.v2-hero-orb {
+  position: absolute; border-radius: 50%; pointer-events: none;
+}
+.v2-hero-orb-1 {
+  top: -200px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(153,255,205,0.055) 0%, transparent 65%);
+}
+.v2-hero-orb-2 {
+  bottom: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(140,180,255,0.04) 0%, transparent 65%);
+}
+.v2-hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative; z-index: 1;
+}
+.v2-dot {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+}
+.v2-dot--mint { background: var(--mint); box-shadow: 0 0 10px var(--mint); }
+.v2-dot--amber { background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+
+.v2-hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--mint); margin-bottom: 32px;
+}
+.v2-hero-h1 {
+  font-size: clamp(48px, 7vw, 78px);
+  font-weight: 800; line-height: 1.08;
+  letter-spacing: -0.03em; color: var(--white);
+  margin-bottom: 24px;
+}
+.v2-hero-h1 em { font-style: italic; color: var(--mint); }
+.v2-hero-sub {
+  font-size: 17px; color: var(--white-70); line-height: 1.7; margin-bottom: 40px;
+}
+.v2-hero-actions {
+  display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+/* Hero visual cards */
+.v2-hero-visual {
+  display: flex; gap: 14px; justify-content: center; align-items: stretch;
+  max-width: 600px; margin: 0 auto;
+}
+.v2-hero-card {
+  background: var(--navy-light); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+}
+.v2-hero-card--lg {
+  flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 12px;
+}
+.v2-hero-card-stack { display: flex; flex-direction: column; gap: 10px; width: 160px; }
+.v2-hero-card--sm { padding: 16px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.v2-hero-card--accent { background: var(--mint-dim); border-color: var(--border-mint); }
+.v2-hero-card-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--mint);
+}
+.v2-hero-card-line { height: 1px; background: var(--border); }
+.v2-hero-chart { display: block; }
+.v2-hero-card-meta {
+  display: flex; gap: 8px; font-size: 10px; color: var(--muted); margin-top: auto;
+}
+.v2-hero-card-num {
+  font-size: 22px; font-weight: 900; color: var(--white);
+  letter-spacing: -0.03em; line-height: 1;
+}
+.v2-hero-card-num--mint { color: var(--mint); }
+.v2-hero-card-lbl { font-size: 10px; color: var(--muted); line-height: 1.4; }
+
+/* ═══ BUTTONS ═══ */
+.v2-btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 100px;
+  background: var(--mint); color: var(--navy);
+  font-size: 15px; font-weight: 700; text-decoration: none; font-family: var(--font);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.v2-btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.v2-btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 100px;
+  border: 1px solid var(--border);
+  color: var(--white-70); font-size: 15px; font-weight: 500; text-decoration: none;
+  transition: border-color 0.2s, color 0.2s; font-family: var(--font);
+}
+.v2-btn-ghost:hover { border-color: var(--border-mint); color: var(--white); }
+.v2-btn-dark {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 32px; border-radius: 100px;
+  background: var(--navy); color: var(--mint);
+  border: 1px solid rgba(153,255,205,0.3);
+  font-size: 16px; font-weight: 700; text-decoration: none; font-family: var(--font);
+  transition: background 0.2s, border-color 0.2s;
+}
+.v2-btn-dark:hover { background: var(--navy-light); border-color: var(--mint); }
+
+/* ═══ STATS BAR ═══ */
+.v2-statsbar {
+  background: var(--navy-light);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+}
+.v2-statsbar-grid {
+  display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap;
+}
+.v2-statitem {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 5px; padding: 28px 44px; text-align: center;
+}
+.v2-statitem-val {
+  font-size: 22px; font-weight: 800; color: var(--mint);
+  letter-spacing: -0.02em; line-height: 1;
+}
+.v2-statitem-lbl {
+  font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em;
+}
+.v2-statitem-sep {
+  width: 1px; background: var(--border); align-self: stretch; margin: 20px 0;
+}
+
+/* ═══ MANIFESTO ═══ */
+.v2-manifesto {
+  padding: 100px 0;
+  background: var(--navy);
+  border-bottom: 1px solid var(--border);
+}
+.v2-manifesto-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.v2-manifesto-quote {
+  font-size: 22px; font-weight: 600; color: var(--white-90);
+  line-height: 1.5; letter-spacing: -0.01em;
+  border-left: 2px solid var(--mint); padding-left: 24px;
+  margin: 20px 0 28px;
+}
+.v2-manifesto-body {
+  font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 0;
+}
+.v2-manifesto-img {
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.v2-link-arrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--mint);
+  text-decoration: none; transition: gap 0.2s;
+}
+.v2-link-arrow:hover { gap: 12px; }
+.v2-link-arrow--dark { color: var(--navy); }
+.v2-link-arrow--dark:hover { gap: 12px; }
+
+/* ═══ SECTION HEADS ═══ */
+.v2-h2 {
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 700; color: var(--white);
+  line-height: 1.2; letter-spacing: -0.025em; margin-top: 10px;
+}
+.v2-section-head { margin-bottom: 48px; }
+
+/* ═══ OFFERINGS ═══ */
+.v2-offerings {
+  padding: 100px 0;
+  background: var(--navy-mid);
+  border-bottom: 1px solid var(--border);
+}
+.v2-offer-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+}
+.v2-offer-col { display: flex; flex-direction: column; gap: 20px; }
+
+.v2-offer-card {
+  display: flex; flex-direction: column;
+  background: var(--navy-light); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.v2-offer-card:hover { border-color: var(--border-mint); transform: translateY(-3px); }
+.v2-offer-card--accent {
+  background: var(--mint); border-color: var(--mint);
+}
+.v2-offer-card--accent:hover { transform: translateY(-3px); border-color: var(--mint); }
+.v2-offer-card--sm { flex: 1; }
+
+.v2-offer-visual { flex-shrink: 0; height: 160px; overflow: hidden; }
+.v2-offer-card--sm .v2-offer-visual { height: 100px; }
+
+.v2-offer-body { padding: 24px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.v2-offer-num {
+  font-size: 11px; font-weight: 900; color: var(--muted);
+  letter-spacing: 0.1em; margin-bottom: 2px;
+}
+.v2-offer-num--dark { color: rgba(7,9,38,0.4); }
+.v2-offer-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted);
+}
+.v2-offer-tag--dark { color: rgba(7,9,38,0.6); }
+.v2-offer-body h3 {
+  font-size: 20px; font-weight: 700; color: var(--white);
+  line-height: 1.25; letter-spacing: -0.01em; margin: 4px 0 6px;
+}
+.v2-offer-h3--dark { color: var(--navy) !important; }
+.v2-offer-body p {
+  font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 14px;
+}
+.v2-offer-p--dark { color: rgba(7,9,38,0.7) !important; }
+
+/* ═══ CURSOS SLIDER ═══ */
+.v2-cursos {
+  padding: 100px 0;
+  background: var(--navy-light);
+  border-bottom: 1px solid var(--border);
+}
+.v2-em-breve {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 8px;
+}
+.v2-cursos-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; margin-bottom: 40px;
+}
+.v2-slider-nav { display: flex; gap: 10px; flex-shrink: 0; }
+.v2-slider-btn {
+  width: 44px; height: 44px;
+  background: var(--white-08); border: 1px solid var(--border);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: var(--white-70); cursor: pointer;
+  transition: all 0.2s; font-family: var(--font);
+}
+.v2-slider-btn svg { pointer-events: none; }
+.v2-slider-btn:hover { background: var(--mint-dim); border-color: var(--border-mint); color: var(--mint); }
+.v2-slider-btn:disabled { opacity: 0.3; cursor: default; pointer-events: none; }
+
+.v2-slider-viewport { overflow: hidden; }
+.v2-slider-track {
+  display: flex; gap: 20px;
+  transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+  will-change: transform;
+}
+.v2-course-card {
+  flex: 0 0 calc(50% - 10px);
+  background: var(--navy); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; min-width: 0;
+  transition: border-color 0.2s;
+}
+.v2-course-card:hover { border-color: var(--border-mint); }
+.v2-course-thumb {
+  aspect-ratio: 16/9; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.v2-course-thumb--1 { background: linear-gradient(135deg, #0f1245, #1a2060); }
+.v2-course-thumb--2 { background: linear-gradient(135deg, #0f1245, rgba(153,255,205,0.1)); }
+.v2-course-thumb--3 { background: linear-gradient(135deg, #0a0e35, rgba(140,180,255,0.1)); }
+.v2-course-thumb--4 { background: linear-gradient(135deg, #0d112e, rgba(255,211,110,0.08)); }
+.v2-course-thumb img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.v2-course-placeholder {
+  color: var(--white-15); position: relative; z-index: 1;
+}
+.v2-course-cat {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--navy-light); border: 1px solid var(--border);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); padding: 4px 10px; border-radius: 100px;
+  z-index: 2;
+}
+.v2-course-body { padding: 24px; }
+.v2-course-body h3 {
+  font-size: 17px; font-weight: 700; color: var(--white);
+  line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 8px;
+}
+.v2-course-body p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+.v2-course-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 16px;
+}
+.v2-slider-dots {
+  display: flex; gap: 8px; justify-content: center; margin-top: 28px;
+}
+.v2-slider-dot {
+  width: 8px; height: 8px; border-radius: 100px;
+  background: var(--border); cursor: pointer;
+  transition: all 0.2s;
+}
+.v2-slider-dot.active {
+  width: 24px; background: var(--mint);
+}
+
+/* ═══ AUTHORITY ═══ */
+.v2-authority {
+  padding: 100px 0;
+  background: var(--navy-mid);
+  border-bottom: 1px solid var(--border);
+}
+.v2-authority-grid {
+  display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: center;
+}
+.v2-authority-photo-wrap { position: relative; }
+.v2-authority-photo {
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border);
+  aspect-ratio: 4/5; background: var(--navy-light);
+  position: relative;
+}
+.v2-authority-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.v2-authority-photo-fallback {
+  position: absolute; inset: 0;
+}
+.v2-authority-badge {
+  position: absolute; bottom: -20px; left: 12px; right: 12px;
+  background: rgba(5,7,32,0.95);
+  border: 1px solid var(--border-mint);
+  border-radius: var(--radius-sm); padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+  backdrop-filter: blur(16px);
+}
+.v2-authority-badge strong { display: block; font-size: 13px; color: var(--white); font-weight: 700; }
+.v2-authority-badge span { font-size: 11px; color: var(--muted); }
+.v2-authority-content { padding-top: 24px; }
+.v2-authority-content p {
+  font-size: 15px; color: var(--body-text); line-height: 1.75; margin-bottom: 14px;
+}
+.v2-creds { display: flex; flex-direction: column; gap: 8px; margin: 24px 0 28px; }
+.v2-cred {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; color: var(--white-70); line-height: 1.5;
+  padding: 12px 14px;
+  background: var(--white-04); border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.v2-cred-icon { color: var(--mint); flex-shrink: 0; margin-top: 1px; }
+
+/* ═══ FOR WHOM ═══ */
+.v2-forwhom {
+  padding: 100px 0;
+  background: var(--navy);
+  border-bottom: 1px solid var(--border);
+}
+.v2-profiles { display: flex; flex-direction: column; }
+.v2-profile {
+  display: grid; grid-template-columns: 72px 1fr 24px;
+  gap: 32px; align-items: center;
+  padding: 36px 0;
+  border-top: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+  transition: background 0.2s;
+}
+.v2-profile:last-child { border-bottom: 1px solid var(--border); }
+.v2-profile:hover .v2-profile-num { color: var(--mint); }
+.v2-profile:hover .v2-profile-arrow { transform: translateX(4px); color: var(--mint); }
+.v2-profile-num {
+  font-size: 36px; font-weight: 900; color: var(--white-15);
+  letter-spacing: -0.04em; line-height: 1; transition: color 0.2s;
+}
+.v2-profile-tag {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--muted); margin-bottom: 8px;
+}
+.v2-profile-body h3 {
+  font-size: 20px; font-weight: 700; color: var(--white);
+  line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 8px;
+}
+.v2-profile-body p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+.v2-profile-arrow { color: var(--white-40); transition: transform 0.2s, color 0.2s; }
+
+/* ═══ LEAD MAGNET ═══ */
+.v2-lead {
+  padding: 100px 0;
+  background: var(--navy-light);
+  border-bottom: 1px solid var(--border);
+}
+.v2-lead-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.v2-pdf-wrap { position: relative; }
+.v2-pdf {
+  background: var(--navy);
+  border: 1px solid var(--border-mint);
+  border-radius: var(--radius);
+  padding: 40px 36px; position: relative; overflow: hidden;
+}
+.v2-pdf-shadow {
+  position: absolute; inset: 0;
+  box-shadow: inset 0 0 60px rgba(153,255,205,0.04);
+}
+.v2-pdf-tag {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--mint); margin-bottom: 20px;
+}
+.v2-pdf h4 {
+  font-size: 24px; font-weight: 700; color: var(--white);
+  line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 28px;
+}
+.v2-pdf-divider { height: 1px; background: var(--border-mint); margin-bottom: 20px; }
+.v2-pdf-author { font-size: 13px; color: var(--muted); }
+.v2-pdf-author strong { display: block; color: var(--white-90); font-size: 15px; margin-bottom: 2px; }
+.v2-pdf-glow {
+  position: absolute; bottom: -60px; right: -60px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(153,255,205,0.12) 0%, transparent 70%);
+}
+.v2-lead-content p { font-size: 15px; color: var(--body-text); line-height: 1.75; margin: 12px 0 24px; }
+.v2-micro { font-size: 12px; color: var(--muted); margin-top: 12px; }
+
+/* ═══ BLOG ═══ */
+.v2-blog {
+  padding: 100px 0;
+  background: var(--navy-mid);
+  border-bottom: 1px solid var(--border);
+}
+.v2-blog-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 24px; margin-bottom: 40px;
+}
+.v2-blog-featured {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  background: var(--navy-light); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  text-decoration: none; color: inherit;
+  margin-bottom: 20px; transition: border-color 0.25s, box-shadow 0.25s;
+}
+.v2-blog-featured:hover { border-color: var(--border-mint); box-shadow: 0 20px 56px rgba(0,0,0,0.4); }
+.v2-blog-featured-img {
+  aspect-ratio: 3/2; background: var(--navy); overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.v2-blog-featured-img img { width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.4s; }
+.v2-blog-featured:hover .v2-blog-featured-img img { transform: scale(1.03); }
+.v2-blog-ph { width: 100%; height: 100%; }
+.v2-blog-featured-body {
+  padding: 48px 40px; display: flex; flex-direction: column; justify-content: center;
+}
+.v2-blog-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mint); margin-bottom: 18px; display: block;
+}
+.v2-blog-featured-body h3 {
+  font-size: 22px; font-weight: 700; color: var(--white);
+  line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 12px;
+}
+.v2-blog-featured-body p {
+  font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 24px;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.v2-blog-meta { display: flex; gap: 10px; font-size: 12px; color: var(--muted); }
+.v2-blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.v2-blog-card {
+  background: var(--navy-light); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  text-decoration: none; color: inherit; display: flex; flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.v2-blog-card:hover { border-color: var(--border-mint); transform: translateY(-3px); }
+.v2-blog-thumb {
+  aspect-ratio: 16/9; background: var(--navy); overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.v2-blog-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.35s; }
+.v2-blog-card:hover .v2-blog-thumb img { transform: scale(1.04); }
+.v2-blog-card-body { padding: 20px; }
+.v2-blog-card-body h4 {
+  font-size: 15px; font-weight: 700; color: var(--white);
+  line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 12px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* ═══ CTA FINAL ═══ */
+.v2-cta-final {
+  padding: 120px 24px;
+  background: var(--mint);
+  text-align: center;
+}
+.v2-cta-inner { max-width: 640px; margin: 0 auto; }
+.v2-cta-eyebrow {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: rgba(7,9,38,0.5); margin-bottom: 16px; display: block;
+}
+.v2-cta-h2 {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 800; color: var(--navy);
+  line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 16px;
+}
+.v2-cta-sub {
+  font-size: 16px; color: rgba(7,9,38,0.65); line-height: 1.65; margin-bottom: 40px;
+}
+.v2-cta-micro { font-size: 12px; color: rgba(7,9,38,0.5); margin-top: 16px; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 960px) {
+  .v2-hero-visual { display: none; }
+  .v2-manifesto-grid { grid-template-columns: 1fr; gap: 40px; }
+  .v2-offer-grid { grid-template-columns: 1fr; }
+  .v2-offer-col { flex-direction: row; }
+  .v2-course-card { flex: 0 0 calc(100% - 0px); }
+  .v2-authority-grid { grid-template-columns: 1fr; gap: 60px; }
+  .v2-authority-photo { aspect-ratio: 16/9; }
+  .v2-authority-badge { position: static; margin-top: 12px; }
+  .v2-lead-grid { grid-template-columns: 1fr; gap: 48px; }
+  .v2-blog-featured { grid-template-columns: 1fr; }
+  .v2-blog-featured-img { aspect-ratio: 16/9; }
+  .v2-blog-featured-body { padding: 28px 24px; }
+  .v2-blog-grid { grid-template-columns: 1fr; }
+  .v2-statsbar-grid { flex-direction: column; }
+  .v2-statitem-sep { display: none; }
+}
+@media (max-width: 600px) {
+  .v2-offer-col { flex-direction: column; }
+  .v2-profile { grid-template-columns: 48px 1fr 20px; gap: 16px; }
+  .v2-cursos-head { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+<script>
+  // Slider v2
+  const track = document.getElementById('v2Track') as HTMLElement | null;
+  const prevBtn = document.getElementById('v2Prev') as HTMLButtonElement | null;
+  const nextBtn = document.getElementById('v2Next') as HTMLButtonElement | null;
+  const dotsEl = document.getElementById('v2Dots');
+  if (track) {
+    const cards = Array.from(track.children) as HTMLElement[];
+    let current = 0;
+    const perView = () => window.innerWidth <= 768 ? 1 : 2;
+    const maxIdx = () => Math.max(0, cards.length - perView());
+
+    function buildDots() {
+      if (!dotsEl) return;
+      dotsEl.innerHTML = '';
+      for (let i = 0; i <= maxIdx(); i++) {
+        const d = document.createElement('div');
+        d.className = 'v2-slider-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      }
+    }
+    function updateDots() {
+      dotsEl?.querySelectorAll('.v2-slider-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current)
+      );
+    }
+    function goTo(idx: number) {
+      current = Math.max(0, Math.min(idx, maxIdx()));
+      const w = cards[0].offsetWidth + 20;
+      track.style.transform = `translateX(-${current * w}px)`;
+      if (prevBtn) prevBtn.disabled = current === 0;
+      if (nextBtn) nextBtn.disabled = current >= maxIdx();
+      updateDots();
+    }
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+    let tx = 0;
+    track.addEventListener('touchstart', (e: TouchEvent) => { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', (e: TouchEvent) => {
+      const diff = tx - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+    });
+    buildDots();
+    goTo(0);
+    window.addEventListener('resize', () => { buildDots(); goTo(Math.min(current, maxIdx())); });
+  }
+</script>
+
+</BaseLayout>
