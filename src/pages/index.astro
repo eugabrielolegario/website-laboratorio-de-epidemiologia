@@ -20,6 +20,44 @@ function readingTime(body: string) {
 
 <section class="hero">
 
+  <!-- 3D floating depth crystals -->
+  <!-- Átomo – ícone científico -->
+  <div class="crystal crystal-hl" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Núcleo -->
+      <circle cx="100" cy="100" r="6" fill="#99ffcd" fill-opacity="0.55"/>
+      <circle cx="100" cy="100" r="10" stroke="#99ffcd" stroke-width="0.8" stroke-opacity="0.3" fill="none"/>
+      <!-- Órbita 1 – horizontal -->
+      <ellipse cx="100" cy="100" rx="82" ry="28" stroke="#99ffcd" stroke-width="1.3" stroke-opacity="0.55" fill="none"/>
+      <!-- Órbita 2 – 60° -->
+      <ellipse cx="100" cy="100" rx="82" ry="28" stroke="#8cb4ff" stroke-width="1.3" stroke-opacity="0.45" fill="none" transform="rotate(60 100 100)"/>
+      <!-- Órbita 3 – 120° -->
+      <ellipse cx="100" cy="100" rx="82" ry="28" stroke="#99ffcd" stroke-width="1.3" stroke-opacity="0.38" fill="none" transform="rotate(120 100 100)"/>
+      <!-- Elétrons -->
+      <circle cx="182" cy="100" r="4" fill="#99ffcd" fill-opacity="0.65"/>
+      <circle cx="55"  cy="32"  r="4" fill="#8cb4ff" fill-opacity="0.6"/>
+      <circle cx="55"  cy="168" r="4" fill="#99ffcd" fill-opacity="0.5"/>
+    </svg>
+  </div>
+  <!-- Dupla hélice de DNA -->
+  <div class="crystal crystal-hr" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Fita 1 (azul) -->
+      <path d="M 145,10 C 145,38 55,48 55,76 C 55,104 145,114 145,142 C 145,170 55,180 55,200"
+        stroke="#8cb4ff" stroke-width="1.6" stroke-linecap="round" stroke-opacity="0.6" fill="none"/>
+      <!-- Fita 2 (verde-menta) -->
+      <path d="M 55,10 C 55,38 145,48 145,76 C 145,104 55,114 55,142 C 55,170 145,180 145,200"
+        stroke="#99ffcd" stroke-width="1.6" stroke-linecap="round" stroke-opacity="0.6" fill="none"/>
+      <!-- Degraus (pares de bases) nos pontos largos -->
+      <line x1="55"  y1="10"  x2="145" y2="10"  stroke="#8cb4ff" stroke-width="1"   stroke-opacity="0.4" stroke-linecap="round"/>
+      <line x1="68"  y1="43"  x2="132" y2="43"  stroke="#99ffcd" stroke-width="0.8" stroke-opacity="0.28" stroke-linecap="round"/>
+      <line x1="55"  y1="76"  x2="145" y2="76"  stroke="#8cb4ff" stroke-width="1"   stroke-opacity="0.4" stroke-linecap="round"/>
+      <line x1="68"  y1="109" x2="132" y2="109" stroke="#99ffcd" stroke-width="0.8" stroke-opacity="0.28" stroke-linecap="round"/>
+      <line x1="55"  y1="142" x2="145" y2="142" stroke="#8cb4ff" stroke-width="1"   stroke-opacity="0.4" stroke-linecap="round"/>
+      <line x1="68"  y1="175" x2="132" y2="175" stroke="#99ffcd" stroke-width="0.8" stroke-opacity="0.28" stroke-linecap="round"/>
+    </svg>
+  </div>
+
   <!-- Animated background rings -->
   <div class="hero-bg-rings" aria-hidden="true">
     <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-rings-svg">
@@ -71,6 +109,25 @@ function readingTime(body: string) {
 
 <!-- ── SOBRE / MISSÃO ── -->
 <section class="missao sep" id="sobre">
+
+  <!-- Anel de benzeno – molécula orgânica -->
+  <div class="crystal crystal-s1" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Hexágono externo -->
+      <polygon points="100,25 165,62 165,138 100,175 35,138 35,62"
+        stroke="#99ffcd" stroke-width="1.4" stroke-opacity="0.55" fill="rgba(153,255,205,0.04)"/>
+      <!-- Anel interno (representação de ligações duplas) -->
+      <polygon points="100,52 143,75 143,125 100,148 57,125 57,75"
+        stroke="#99ffcd" stroke-width="0.9" stroke-opacity="0.32" fill="none"/>
+      <!-- Átomos nos vértices -->
+      <circle cx="100" cy="25"  r="3" fill="#99ffcd" fill-opacity="0.45"/>
+      <circle cx="165" cy="62"  r="3" fill="#99ffcd" fill-opacity="0.45"/>
+      <circle cx="165" cy="138" r="3" fill="#99ffcd" fill-opacity="0.45"/>
+      <circle cx="100" cy="175" r="3" fill="#99ffcd" fill-opacity="0.45"/>
+      <circle cx="35"  cy="138" r="3" fill="#99ffcd" fill-opacity="0.45"/>
+      <circle cx="35"  cy="62"  r="3" fill="#99ffcd" fill-opacity="0.45"/>
+    </svg>
+  </div>
 
   <svg class="missao-bg" viewBox="0 0 400 400" fill="none" aria-hidden="true">
     <circle cx="200" cy="200" r="180" stroke="#99ffcd" stroke-width="1.5" stroke-dasharray="6 5"/>
@@ -184,6 +241,20 @@ function readingTime(body: string) {
 
 <!-- ── AUTORIDADE — LUCAS ── -->
 <section class="autoridade sep">
+  <!-- Cruz médica -->
+  <div class="crystal crystal-s2" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Forma da cruz -->
+      <path d="M 75,30 L 125,30 L 125,75 L 170,75 L 170,125 L 125,125 L 125,170 L 75,170 L 75,125 L 30,125 L 30,75 L 75,75 Z"
+        stroke="#8cb4ff" stroke-width="1.4" stroke-opacity="0.55" stroke-linejoin="round"
+        fill="rgba(140,180,255,0.04)"/>
+      <!-- Detalhe interno – linha horizontal e vertical -->
+      <line x1="100" y1="30"  x2="100" y2="170" stroke="#8cb4ff" stroke-width="0.7" stroke-opacity="0.25"/>
+      <line x1="30"  y1="100" x2="170" y2="100" stroke="#8cb4ff" stroke-width="0.7" stroke-opacity="0.25"/>
+      <!-- Centro -->
+      <circle cx="100" cy="100" r="6" stroke="#8cb4ff" stroke-width="0.8" stroke-opacity="0.3" fill="rgba(140,180,255,0.1)"/>
+    </svg>
+  </div>
   <div class="container">
     <div class="autoridade-grid">
       <div class="foto-frame" aria-label="Foto de Lucas Santos">
@@ -217,69 +288,6 @@ function readingTime(body: string) {
   </div>
 </section>
 
-<!-- ── DIFERENCIAIS ── -->
-<section class="diferenciais sep">
-  <div class="container">
-    <div class="diff-header">
-      <div>
-        <div class="section-tag">Por que o LabEpi</div>
-        <h2 class="section-title">O que nos torna<br/><span class="mint">diferentes.</span></h2>
-      </div>
-      <p class="section-body" style="max-width:380px;">Não é sobre o que ensinamos: é sobre como ensinamos e de onde falamos.</p>
-    </div>
-    <div class="diff-grid">
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 14 C4 14 5 8 7 8 C9 8 9 12 11 6 C13 0 14 4 16 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <h3>Foco no Como Fazer</h3>
-        <p>Não ensinamos só o que é um estudo de coorte: ensinamos como montar, executar e publicar um.</p>
-        <span class="diff-tag">Abordagem 100% prática</span>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L2 16h14L9 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 10V7M9 13v-.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <h3>Urgência Real Resolvida</h3>
-        <p>Prazo de qualificação chegando? A dúvida metodológica que está travando o projeto tem solução aqui.</p>
-        <span class="diff-tag">Do problema à solução</span>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M9 5v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <h3>Autoridade GBD</h3>
-        <p>Participação real no maior estudo epidemiológico do planeta. Credencial que não se fabrica.</p>
-        <span class="diff-tag">IHME</span>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 9h8M5 6h8M5 12h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <h3>Baseado em Evidências</h3>
-        <p>Todo artigo tem citações verificáveis. PubMed, SciELO, GBD, CAPES, DataSUS. Nunca inventamos dados.</p>
-        <span class="diff-tag">Rigor científico</span>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <h3>O Pesquisador no Centro</h3>
-        <p>Cada decisão começa com: isso resolve um problema real de quem está tentando fazer ciência?</p>
-        <span class="diff-tag">Acolhimento + rigor</span>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9h4M12 9h4M9 2v4M9 12v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
-        </div>
-        <h3>Conteúdo em Evolução</h3>
-        <p>Blog semanal, novos módulos e materiais atualizados com os dados mais recentes das principais bases científicas.</p>
-        <span class="diff-tag">Sempre atualizado</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ── PARA QUEM É ── -->
 <section class="para-quem sep">
   <div class="container">
@@ -304,8 +312,8 @@ function readingTime(body: string) {
         <div class="pq-tag">Mestrado · Doutorado</div>
         <h3>Está no meio da pós-graduação</h3>
         <p>Tem prazo, orientador exigente e dúvida metodológica específica que está travando o projeto. Precisa de solução direta, sem enrolação, antes que o prazo aperte.</p>
-        <a href="#lead-magnet" class="link-arrow">
-          Baixar o guia gratuito
+        <a href="#cursos" class="link-arrow">
+          Conhecer os cursos
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -325,6 +333,24 @@ function readingTime(body: string) {
 
 <!-- ── LEAD MAGNET ── -->
 <section class="lead-magnet sep" id="lead-magnet">
+  <!-- Erlenmeyer (frasco de laboratório) -->
+  <div class="crystal crystal-s3" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Corpo do frasco -->
+      <path d="M 78,58 L 78,112 L 32,178 L 168,178 L 122,112 L 122,58 Z"
+        stroke="#ffd36e" stroke-width="1.4" stroke-opacity="0.55" stroke-linejoin="round"
+        fill="rgba(255,211,110,0.04)"/>
+      <!-- Gargalo -->
+      <line x1="72"  y1="58"  x2="128" y2="58"  stroke="#ffd36e" stroke-width="1.4" stroke-opacity="0.5"  stroke-linecap="round"/>
+      <line x1="80"  y1="42"  x2="120" y2="42"  stroke="#ffd36e" stroke-width="1.4" stroke-opacity="0.45" stroke-linecap="round"/>
+      <line x1="78"  y1="58"  x2="80"  y2="42"  stroke="#ffd36e" stroke-width="1.2" stroke-opacity="0.4"  stroke-linecap="round"/>
+      <line x1="122" y1="58"  x2="120" y2="42"  stroke="#ffd36e" stroke-width="1.2" stroke-opacity="0.4"  stroke-linecap="round"/>
+      <!-- Bolhas de líquido -->
+      <circle cx="90"  cy="148" r="7"  stroke="#ffd36e" stroke-width="0.9" stroke-opacity="0.35" fill="none"/>
+      <circle cx="116" cy="158" r="5"  stroke="#ffd36e" stroke-width="0.9" stroke-opacity="0.28" fill="none"/>
+      <circle cx="100" cy="163" r="4"  stroke="#ffd36e" stroke-width="0.8" stroke-opacity="0.22" fill="none"/>
+    </svg>
+  </div>
   <div class="container">
     <div class="lead-grid">
       <div class="lead-visual">
@@ -416,11 +442,11 @@ function readingTime(body: string) {
       <div class="consultoria-callout">
         <div class="callout-eyebrow">Como funciona</div>
         <div class="callout-title">Triagem prévia para garantir o melhor atendimento.</div>
-        <div class="callout-body">Preencha o formulário descrevendo sua dúvida metodológica e etapa do projeto. Lucas analisa pessoalmente cada solicitação e retorna em até 48h para confirmar a disponibilidade e alinhar o escopo da consultoria.</div>
+        <div class="callout-body">Preencha o formulário descrevendo sua dúvida metodológica e etapa do projeto. Lucas analisa pessoalmente cada solicitação e retorna assim que concluir a avaliação do seu caso.</div>
         <a href="/consultoria/#triagem" class="btn-secondary" style="width:100%;justify-content:center;">
           Preencher o formulário de triagem
         </a>
-        <p class="callout-meta">Vagas limitadas · Lucas retorna em até 48h · Pagamento via PIX ou cartão</p>
+        <p class="callout-meta">Vagas limitadas · Cada caso analisado individualmente · Pagamento via PIX ou cartão</p>
       </div>
     </div>
   </div>
@@ -431,89 +457,63 @@ function readingTime(body: string) {
   <div class="container">
     <div class="cursos-header">
       <div class="em-breve">
-        <svg width="6" height="6" viewBox="0 0 6 6" fill="#ffd36e"><circle cx="3" cy="3" r="3"/></svg>
-        Em breve · 2026
+        <span class="live-dot"><span class="live-dot-ring"></span><span class="live-dot-core"></span></span>
+        Inscrições abertas
       </div>
       <div class="section-tag" style="justify-content:center;">Cursos &amp; Formação</div>
       <h2 class="section-title" style="text-align:center;">Do <span class="mint">fundamento</span> à publicação.</h2>
       <p class="section-body" style="text-align:center;margin:16px auto 0;">Cursos completos em vídeo, gravados por Lucas Santos, com casos práticos da área da saúde.</p>
     </div>
-    <div class="slider-wrap" id="cursosSlider">
-      <button class="slider-btn" id="cursosPrev" aria-label="Anterior">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="slider-viewport">
-        <div class="slider-track" id="cursosTrack">
+    <div class="cursos-grid">
 
-          <div class="curso-card">
-            <div class="curso-thumb">
-              <img loading="lazy" src="/assets/images/curso-pos-graduacao.jpg" alt="Descomplicando a Pós-Graduação" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
-              <span class="curso-cat">Pós-graduação</span>
-            </div>
-            <div class="curso-body">
-              <h3>Descomplicando a Pós-Graduação</h3>
-              <p>Guia prático para navegar na pós-graduação com segurança. Entenda como estruturar seu projeto, organizar estudos e desenvolver pensamento científico desde os primeiros passos.</p>
-              <div class="curso-footer">
-                <span style="font-size:12px;color:var(--muted);">Módulo introdutório</span>
-                <a href="#cursos-espera" class="link-arrow" style="font-size:13px;">Avise-me <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="curso-card">
-            <div class="curso-thumb">
-              <img loading="lazy" src="/assets/images/curso-metodologia.jpg" alt="Descomplicando a Metodologia de Pesquisa" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
-              <span class="curso-cat">Metodologia</span>
-            </div>
-            <div class="curso-body">
-              <h3>Descomplicando a Metodologia de Pesquisa</h3>
-              <p>Aprenda, de forma clara e aplicada, como construir perguntas de pesquisa, escolher métodos adequados e estruturar estudos científicos com rigor e lógica.</p>
-              <div class="curso-footer">
-                <span style="font-size:12px;color:var(--muted);">Módulo avançado</span>
-                <a href="#cursos-espera" class="link-arrow" style="font-size:13px;">Avise-me <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="curso-card">
-            <div class="curso-thumb">
-              <img loading="lazy" src="/assets/images/curso-estatistica.jpg" alt="Descomplicando a Estatística em Pesquisa" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
-              <span class="curso-cat">Estatística</span>
-            </div>
-            <div class="curso-body">
-              <h3>Descomplicando a Estatística em Pesquisa</h3>
-              <p>Do p-valor ao intervalo de confiança: entenda cada teste estatístico aplicado à sua realidade, com exemplos reais de estudos publicados no PubMed e SciELO.</p>
-              <div class="curso-footer">
-                <span style="font-size:12px;color:var(--muted);">Módulo avançado</span>
-                <a href="#cursos-espera" class="link-arrow" style="font-size:13px;">Avise-me <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="curso-card">
-            <div class="curso-thumb">
-              <img loading="lazy" src="/assets/images/curso-gbd.jpg" alt="Descomplicando o GBD e a Epidemiologia Global" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
-              <span class="curso-cat">GBD · Epidemiologia Global</span>
-            </div>
-            <div class="curso-body">
-              <h3>Descomplicando o GBD e a Epidemiologia Global</h3>
-              <p>Entenda o maior estudo epidemiológico do mundo, como usar seus dados no Brasil e como aplicar métricas como DALY, YLL e YLD na sua pesquisa.</p>
-              <div class="curso-footer">
-                <span style="font-size:12px;color:var(--muted);">Módulo especializado</span>
-                <a href="#cursos-espera" class="link-arrow" style="font-size:13px;">Avise-me <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-              </div>
-            </div>
-          </div>
-
+      <div class="curso-card">
+        <div class="curso-thumb">
+          <img loading="lazy" src="/assets/images/curso-pos-graduacao.jpg" alt="Descomplicando a Pós" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+          <span class="curso-cat">Pós-graduação</span>
+        </div>
+        <div class="curso-body">
+          <h3>Descomplicando a Pós</h3>
+          <p>Navegue na pós-graduação com clareza. Estruture seu projeto, entenda as exigências metodológicas e desenvolva pensamento científico desde os primeiros passos.</p>
+          <a href="#cursos-inscricao" class="btn-curso">
+            Quero me inscrever
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
-      <button class="slider-btn" id="cursosNext" aria-label="Próximo">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+
+      <div class="curso-card">
+        <div class="curso-thumb">
+          <img loading="lazy" src="/assets/images/curso-metodologia.jpg" alt="Metodologia Sem Medo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+          <span class="curso-cat">Metodologia</span>
+        </div>
+        <div class="curso-body">
+          <h3>Metodologia Sem Medo</h3>
+          <p>Construa perguntas de pesquisa sólidas, escolha o método certo e estruture estudos com rigor — sem depender de fórmulas prontas ou tutoriais genéricos.</p>
+          <a href="#cursos-inscricao" class="btn-curso">
+            Quero me inscrever
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="curso-card">
+        <div class="curso-thumb">
+          <img loading="lazy" src="/assets/images/curso-estatistica.jpg" alt="Epidemiologia na Prática" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+          <span class="curso-cat">Epidemiologia</span>
+        </div>
+        <div class="curso-body">
+          <h3>Epidemiologia na Prática</h3>
+          <p>Do delineamento ao resultado: aplique medidas de frequência, associação e impacto com casos reais extraídos de estudos publicados no PubMed e SciELO.</p>
+          <a href="#cursos-inscricao" class="btn-curso">
+            Quero me inscrever
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
     </div>
-    <div class="slider-dots" id="cursosDots"></div>
-    <div class="espera-area" id="cursos-espera">
-      <p>Entre na lista de espera para acesso antecipado e condições especiais de lançamento.</p>
+    <div class="espera-area" id="cursos-inscricao">
+      <p>Garanta sua vaga agora e receba acesso imediato ao material do curso.</p>
       <div class="ml-embedded" data-form="06lpuw"></div>
       <p class="espera-micro">Gratuito · Sem compromisso</p>
     </div>
@@ -668,7 +668,6 @@ function readingTime(body: string) {
 .missao-full .num-card:last-child { border-right: none; }
 
 /* ─── DIFERENCIAIS: 2 grandes (row 1) + 4 pequenos (row 2) ─── */
-.diferenciais { background: var(--navy-light); }
 .diff-grid { grid-template-columns: repeat(4, 1fr); }
 
 .diff-card:nth-child(1) { grid-column: span 2; }
@@ -865,12 +864,6 @@ function initSlider(opts: {
   goTo(0);
   window.addEventListener('resize', () => { buildDots(); goTo(Math.min(current, maxIdx())); });
 }
-
-initSlider({
-  trackId: 'cursosTrack', prevId: 'cursosPrev', nextId: 'cursosNext', dotsId: 'cursosDots',
-  dotClass: 'slider-dot',
-  perView: (vw) => vw <= 768 ? 1 : 2
-});
 
 initSlider({
   trackId: 'ebookTrack', prevId: 'ebookPrev', nextId: 'ebookNext', dotsId: 'ebookDots',

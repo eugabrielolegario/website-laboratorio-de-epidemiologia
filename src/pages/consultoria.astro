@@ -111,6 +111,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <li>Alinhamento com linhas de pesquisa e programas</li>
           <li>Orientação sobre próximos passos concretos</li>
         </ul>
+        <div class="modalidade-triagem">
+          <p>⏱ Retorno em até 48h após o preenchimento do formulário.</p>
+        </div>
       </div>
 
       <div class="modalidade-card">
@@ -123,6 +126,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <li>Alinhamento com padrões de periódicos de referência</li>
           <li>Suporte pós-sessão por e-mail</li>
         </ul>
+        <div class="modalidade-triagem">
+          <p>⏱ O prazo de retorno varia conforme a complexidade do projeto e a viabilidade de atendimento. Cada caso é analisado individualmente.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -173,66 +179,81 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <!-- ── ENTREGÁVEIS + PRICING ── -->
 <section class="entregaveis-sec sep">
   <div class="container">
-    <div class="entregaveis-grid">
-      <div class="entregaveis-content">
-        <div class="section-tag">O que está incluído</div>
-        <h2 class="section-title">
-          Cada sessão é focada<br/>no <span class="mint">seu projeto.</span>
-        </h2>
-        <p>Não há roteiro genérico. Cada sessão começa com a análise prévia do seu formulário de triagem: o tempo é usado inteiramente para o seu problema específico.</p>
-
-        <ul class="entrega-list">
-          <li class="entrega-item">
-            <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <div class="entrega-text">
-              <h4>Revisão de delineamento de estudo</h4>
-              <p>Análise do tipo de estudo escolhido, critérios de inclusão/exclusão e potenciais fontes de viés.</p>
-            </div>
-          </li>
-          <li class="entrega-item">
-            <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <div class="entrega-text">
-              <h4>Análise estatística aplicada ao seu caso</h4>
-              <p>Tamanho amostral, escolha dos testes, interpretação de resultados e apresentação dos dados.</p>
-            </div>
-          </li>
-          <li class="entrega-item">
-            <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <div class="entrega-text">
-              <h4>Estrutura para submissão em periódico</h4>
-              <p>Alinhamento da metodologia com os critérios de revistas de referência da área da saúde.</p>
-            </div>
-          </li>
-          <li class="entrega-item">
-            <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <div class="entrega-text">
-              <h4>Suporte pós-sessão por e-mail</h4>
-              <p>Dúvidas que surgirem na aplicação das orientações respondidas por e-mail após a sessão.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="pricing-card">
-          <div class="pricing-glow" aria-hidden="true"></div>
-          <div class="pricing-eyebrow">Detalhes da sessão</div>
-          <div class="pricing-from">O valor é definido após a triagem, de acordo com o escopo do projeto.</div>
-          <div class="pricing-divider"></div>
-          <ul class="pricing-includes">
-            <li>Sessão individual com epidemiologista do LabEpi</li>
-            <li>Análise prévia do seu projeto</li>
-            <li>Revisão metodológica completa</li>
-            <li>Orientações por escrito</li>
-            <li>Suporte pós-sessão por e-mail</li>
-          </ul>
-          <a href="#triagem" class="btn-primary" style="width:100%;justify-content:center;">
-            Solicitar triagem gratuita
-          </a>
-          <p class="pricing-note">Vagas limitadas · Valor definido após triagem<br/>Pagamento via PIX ou cartão após aprovação</p>
-        </div>
-      </div>
+    <div class="entregaveis-header">
+      <div class="section-tag">O que está incluído</div>
+      <h2 class="section-title">
+        Cada sessão é focada<br/>no <span class="mint">seu projeto.</span>
+      </h2>
+      <p>Não há roteiro genérico. Cada sessão começa com a análise prévia do seu formulário de triagem: o tempo é usado inteiramente para o seu problema específico.</p>
     </div>
+
+    <div class="entregaveis-cols">
+      <!-- Coluna 1: entregas metodológicas -->
+      <ul class="entrega-list">
+        <li class="entrega-item">
+          <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="entrega-text">
+            <h4>Revisão de delineamento de estudo</h4>
+            <p>Análise do tipo de estudo escolhido, critérios de inclusão/exclusão e potenciais fontes de viés.</p>
+          </div>
+        </li>
+        <li class="entrega-item">
+          <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="entrega-text">
+            <h4>Análise estatística aplicada ao seu caso</h4>
+            <p>Tamanho amostral, escolha dos testes, interpretação de resultados e apresentação dos dados.</p>
+          </div>
+        </li>
+        <li class="entrega-item">
+          <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="entrega-text">
+            <h4>Estrutura para submissão em periódico</h4>
+            <p>Alinhamento da metodologia com os critérios de revistas de referência da área da saúde.</p>
+          </div>
+        </li>
+        <li class="entrega-item">
+          <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="entrega-text">
+            <h4>Suporte pós-sessão por e-mail</h4>
+            <p>Dúvidas que surgirem na aplicação das orientações respondidas por e-mail após a sessão.</p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Coluna 2: detalhes da sessão -->
+      <ul class="entrega-list">
+        <li class="entrega-item">
+          <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="entrega-text">
+            <h4>Sessão individual com epidemiologista do LabEpi</h4>
+            <p>Atendimento exclusivo com especialista dedicado ao seu projeto, sem roteiro genérico.</p>
+          </div>
+        </li>
+        <li class="entrega-item">
+          <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="entrega-text">
+            <h4>Análise prévia do seu projeto</h4>
+            <p>Leitura do formulário de triagem antes da sessão para otimizar cada minuto do encontro.</p>
+          </div>
+        </li>
+        <li class="entrega-item">
+          <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="entrega-text">
+            <h4>Revisão metodológica completa</h4>
+            <p>Diagnóstico dos pontos críticos de método que podem comprometer a aprovação ou publicação.</p>
+          </div>
+        </li>
+        <li class="entrega-item">
+          <span class="entrega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9 L7 14 L16 4" stroke="#99ffcd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="entrega-text">
+            <h4>Gravação da sessão disponibilizada</h4>
+            <p>Acesso ao vídeo completo para rever as orientações no momento em que precisar.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <p class="entregaveis-note">O valor é definido após a triagem · Vagas limitadas · Pagamento via PIX ou cartão após aprovação</p>
   </div>
 </section>
 
